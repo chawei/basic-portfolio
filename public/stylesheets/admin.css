@@ -563,8 +563,20 @@ table.index {
   display: block;
 }
 
+.clear {
+  clear: both;
+}
+.clear_fix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+/* IE7 Hack */
 .clear_fix {
   clear: both;
+  *display: inline-block;
 }
 
 .float_container {

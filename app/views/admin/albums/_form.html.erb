@@ -61,23 +61,22 @@
       <div class="warning clear_fix">657 x 438 pixels</div>
     </div>
     <div class="left">
-        <div id="photos" class="index_view_container">
-          <% for photo in @album.photos %>
-          <div id="photo_<%= photo.id %>" class="index_item clear_fix">
-            <div class="handle"><img src="/images/icons/order.png" alt="[+]"></div>
-            <%= render :partial => 'photo', :locals => { :form => f, :photo => photo } %>
-            <div class="clear_fix"></div>
-          </div>
-          <%- end -%>
+      <div id="photos" class="index_view_container">
+        <% for photo in @album.photos %>
+        <div id="photo_<%= photo.id %>" class="index_item ajax_photo_item">
+          <%= render :partial => 'photo', :locals => { :form => f, :photo => photo } %>
         </div>
-        <%= sortable_element("photos", :url => admin_photos_sort_path) %>
+        <%- end -%>
+      </div>
+      <%= sortable_element("photos", :url => admin_photos_sort_path) %>
+      
       <div id="new_photos">
          <% if @album.new_record? %>
            <%= render :partial => 'photo', :locals => { :form => f, :photo => @album.photos.build } %>
         <% end %>
       </div>
-
-      <%= add_object_link("+ add another photo", f, @album.photos.build, "photo", "#photos") %>
+      
+      <%= add_object_link("+ add another photo", f, @album.photos.build, "photo", "#new_photos") %>
     </div>
   </div>
   

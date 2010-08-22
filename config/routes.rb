@@ -11,6 +11,7 @@ Portfolio::Application.routes.draw do
     resources :users
     
     resources :articles
+    
     resources :albums do
       collection do 
         get 'sort'
