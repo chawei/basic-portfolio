@@ -1,0 +1,8 @@
+<% title "Edit Album" %>
+
+<div>
+  <%= link_to "View details", [:admin, @album] %> |
+  <%= link_to "Back to album list", admin_albums_path(:productline_id => @album.parent_category.root.id) %>
+</div>
+
+<%= render :partial => 'form' %>

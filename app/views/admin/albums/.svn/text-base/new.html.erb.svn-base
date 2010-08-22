@@ -1,0 +1,6 @@
+<% title "New Album" %>
+
+<div><%= link_to "Back to album list", admin_albums_path(:productline_id => params[:productline_id]) %></div>
+
+<%= render :partial => 'form' %>
+

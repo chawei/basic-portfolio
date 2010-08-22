@@ -1,0 +1,62 @@
+<% title "Album: #{@album.title}" %>
+
+<% content_for :head do -%>
+  <%= javascript_include_tag "album" %>
+<% end -%>
+
+<div class="">
+  <%= link_to "Edit", edit_admin_album_path(@album) %> |
+  <%= link_to "Delete this album", [:admin, @album], :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "Back to album list", admin_albums_path %>
+</div>
+
+<div class="view_container">
+
+<div class="view_row">
+  <label>Full Title</label>
+  <span><%=h @album.full_title %></span>
+</div>
+    
+<div class="view_row">
+  <label>Album Cover</label>
+  <span>
+    <div><%= image_tag(@album.album_cover(:small)) %></div>
+    <div>title: <%= @album.album_cover_title %></div>
+  </span>
+</div>
+
+<div class="view_row">
+  <label>Description</label>
+  <span><%=h @album.description %></span>
+</div>
+
+<div class="view_row">
+  <div class="left">
+    <label>Photos</label>
+    <div class="warning clear_fix"><%=h "#{@album.photos.length} photos" %></div>
+  </div>
+  <div class="left">
+    <div id="photos" class="index_view_container">
+      <% for photo in @album.photos %>
+      <div id="photo_<%= photo.id %>" class="index_item clear_fix">
+        <div class="handle"><img src="/images/icons/order.png" alt="[+]"></div>
+        <div class="photo_thumb">
+          <%= image_tag(photo.data(:thumb), :alt => photo.title) %>
+        </div>
+        <div class="name"><%=h photo.name %></div>
+        <div class="actions">
+          <%= "(Current Album Cover)" if photo.id == @album.album_cover_photo_id -%>
+          <%= link_to "Set as album cover", crop_admin_album_path(@album, :photo_id => photo.id) %> |
+          <%= link_to "Delete this photo", 
+                :url => delete_photo_admin_albums_path(:id => @album, :photo_id => photo.id), 
+                :complete => visual_effect(:fade, "photo_#{photo.id}") %>
+        </div>
+        <div class="clear_fix"></div>
+      </div>
+      <%- end -%>
+    </div>
+    <%= sortable_element("photos", :url => admin_photos_sort_path) %>
+  </div>
+</div>
+<div class="clear_fix"></div>
+</div>

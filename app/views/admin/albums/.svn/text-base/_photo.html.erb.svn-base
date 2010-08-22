@@ -1,0 +1,33 @@
+<div class="photo">
+  <p>
+  <% form.fields_for :photos, photo, :child_index => (photo.new_record? ? "index_to_replace_with_js" : nil) do |photo_form| %>  
+    <div class="sub_row">
+      <label>title</label> 
+      <%= photo_form.text_field :title %>
+      <div class="clear_fix"></div>
+    </div>
+    <div class="sub_row">
+      <label>image</label>
+      <div class="left">
+        <% if photo.data? -%>
+        <div><%= image_tag photo.data(:thumb), :alt => photo.title %></div>
+        <div>replace with <%= photo_form.file_field :data %></div>
+        <%- else -%>
+        <%= photo_form.file_field :data %>
+        <%- end -%> 
+      </div>
+      <div class="clear_fix"></div>
+    </div>
+    
+    <div class="sub_row">
+    <% if photo.new_record? -%>
+    <%= link_to_function "Delete this photo", "remove_field($(this), ('.photo'))" %>
+    <% else -%>
+    <%= link_to_remote "Delete this photo", 
+          :url => delete_photo_admin_albums_path(:id => @album, :photo_id => photo.id), 
+          :complete => visual_effect(:fade, "photo_#{photo.id}") %>
+    <% end -%>
+    </div>
+  <% end %>
+  </p>
+</div>

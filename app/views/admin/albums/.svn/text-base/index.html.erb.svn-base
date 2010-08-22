@@ -1,0 +1,33 @@
+<%= render :partial => 'sidebar' %>
+
+<% title "Albums - #{@productline.name}" %>
+
+<div class="description">
+  Albums under <%=h @productline.name %>.
+</div>
+
+<div class='view_all_header'>
+  <span class='title'>List of albums</span>
+  (<%= link_to "add a new album", new_admin_album_path(:productline_id => @productline.id) %>)
+</div>
+
+<div id="albums" class="index_view_container">
+  <%- for album in @albums -%>
+  <div id="album_<%= album.id %>" class="index_item">
+    <div class="handle"><img src="/images/Icon_order.png" alt="[+]"></div>
+    <div class="thumbnail"><%= image_tag album.album_cover(:small) %></div>
+    <div class="title">
+      <%=h album.title %> 
+      <span class="warning"><%=h "(#{album.photos.length} photos)" %></span>
+    </div>
+    <div class="actions">
+      <%= link_to 'View', [:admin, album] %> | 
+      <%= link_to 'Edit', edit_admin_album_path(album) %> | 
+      <%= link_to 'Delete this album', admin_album_path(album), :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+    <div class="clear_fix"></div>
+  </div>
+  <%- end -%>
+</div>
+
+<%= sortable_element("albums", :url => sort_admin_albums_path) %>

@@ -1,0 +1,88 @@
+<div class="edit_container">
+<% form_for [:admin, @album], :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+    <div class="left">
+      <%= f.label :title %>
+      <div class="warning clear_fix">less than 20 characters</div>
+    </div>
+    <div class="left">
+      <%= f.text_field :title %>
+    </div>
+    <div class="clear_fix"></div>
+  </div>
+  
+  <div class="field">
+    <div class="left">
+      <%= f.label :full_title, "Full Title" %>
+      <div class="warning clear_fix">less than 30 characters</div>
+    </div>
+    <div class="left">
+      <%= f.text_field :full_title %>
+    </div>
+    <div class="clear_fix"></div>
+  </div>
+  
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+  
+  <div class="field">
+    <div class="left">
+      <label for="album_cover">Album cover</label>
+      <div class="warning clear_fix">at least 155 x 155 pixels</div>
+    </div>
+  <% if @album.new_record? -%>
+    <%= f.file_field :album_cover %>
+  <% else -%>
+    <div class="left">
+      <div class="sub_row">
+        <label>title</label>
+        <%= f.text_field :album_cover_title %>
+        <div class="clear_fix"></div>
+      </div>
+      <div class="sub_row">
+        <label>image</label>
+        <div class="left">
+          <div><%= image_tag(@album.album_cover(:small), :style => 'width: 60px;') %></div>
+          <div>replace with <%= f.file_field :album_cover %></div>
+        </div>
+        <div class="clear_fix"></div>
+      </div>
+    </div>
+  <% end -%>
+  </div>
+  
+  <div class="field">
+    <div class="left">
+      <label for="album_photos">Photos</label>
+      <div class="warning clear_fix">657 x 438 pixels</div>
+    </div>
+    <div class="left">
+        <div id="photos" class="index_view_container">
+          <% for photo in @album.photos %>
+          <div id="photo_<%= photo.id %>" class="index_item clear_fix">
+            <div class="handle"><img src="/images/icons/order.png" alt="[+]"></div>
+            <%= render :partial => 'photo', :locals => { :form => f, :photo => photo } %>
+            <div class="clear_fix"></div>
+          </div>
+          <%- end -%>
+        </div>
+        <%= sortable_element("photos", :url => admin_photos_sort_path) %>
+      <div id="new_photos">
+         <% if @album.new_record? %>
+           <%= render :partial => 'photo', :locals => { :form => f, :photo => @album.photos.build } %>
+        <% end %>
+      </div>
+
+      <%= add_object_link("+ add another photo", f, @album.photos.build, "photo", "#photos") %>
+    </div>
+  </div>
+  
+  <div class="field submit_row">
+    <%= f.submit "Save", :class => "submit_btn" %>
+  </div>
+<% end %>
+</div>

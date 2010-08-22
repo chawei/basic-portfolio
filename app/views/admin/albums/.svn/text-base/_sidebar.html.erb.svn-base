@@ -1,0 +1,9 @@
+<%- content_for :sidebar do -%>
+  <%- for productline in ProductCategory.roots -%>
+    <%- if @productline and productline.id == @productline.id -%>
+    <div class="current"><%= link_to productline.name, admin_albums_path(:productline_id => productline.id) %></div>
+    <%- else -%>
+    <div><%= link_to productline.name, admin_albums_path(:productline_id => productline.id) %></div>
+    <%- end -%>
+  <%- end -%>
+<%- end -%>

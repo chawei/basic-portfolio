@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<div class="nav_links">
+  <%= link_to 'Edit', edit_admin_page_path(@page) %> |
+  <%= link_to 'Back', admin_pages_path %>
+</div>
+
+<div class="show_container">
+  <div class="row">
+    <div class="label">Title</div>
+    <div class="data"><%= @page.title %></div>
+  </div>
+  <div class="row">
+    <div class="label">Content</div>
+    <div class="data"><%= @page.content %></div>
+  </div>
+</div>

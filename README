@@ -1,0 +1,11 @@
+== Getting Started
+1. Configure simple-navigation
+
+2. Generate Friendly_id
+       <tt>rails generate friendly_id</tt>
+
+3. Follow the guidelines to start developing your application. You can find
+the following resources handy:
+
+* The Getting Started Guide: http://guides.rubyonrails.org/getting_started.html
+* Ruby on Rails Tutorial Book: http://www.railstutorial.org/
