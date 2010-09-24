@@ -4,3 +4,4 @@ log/*.log
 tmp/**/*
 public/system/**/*
 public/system/*
+lib/.DS_Store
