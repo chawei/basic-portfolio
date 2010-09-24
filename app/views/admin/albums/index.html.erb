@@ -10,6 +10,9 @@
 </div>
 
 <div id="albums" class="index_container">
+  <% if @albums.empty? %>
+  Please add a new album
+  <% else %>
   <%- for album in @albums -%>
   <div id="album_<%= album.id %>" class="index_item">
     <div class="handle"><img src="/images/icons/order.png" alt="[+]"></div>
@@ -25,6 +28,7 @@
     </div>
     <div class="clear_fix"></div>
   </div>
+  <%- end -%>
   <%- end -%>
 </div>
 

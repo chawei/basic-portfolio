@@ -1,0 +1,63 @@
+<%= form_for([:admin, @film], :html => { :multipart => true }) do |f| %>
+  <% if @film.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@film.errors.count, "error") %> prohibited this film from being saved:</h2>
+
+      <ul>
+      <% @film.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div class="label"><%= f.label :film_type %></div>
+    <div class="input"><%= f.select :film_type, Film::FILM_TYPES %></div>
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label :title %></div>
+    <div class="input"><%= f.text_field :title %></div>
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label :description %></div>
+    <div class="input"><%= f.text_area :description %></div>
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label :director %></div>
+    <div class="input"><%= f.text_field :director %></div>
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label :year %></div>
+    <div class="input"><%= f.text_field :year %></div>
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label :color %></div>
+    <div class="input"><%= f.text_field :color %></div>
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label :film_length %></div>
+    <div class="input"><%= f.text_field :film_length %></div>
+  </div>
+  <div class="field">
+    <div class="label"><%= f.label :languages %></div>
+    <div class="input"><%= f.text_field :languages %></div>
+  </div>
+  <div class="field clear_fix">
+    <div class="left">
+      <label for="film_thumb">Film Thumbnail</label>
+      <div class="warning">at least 300 x 300 pixels</div>
+    </div>
+  <% if @film.new_record? -%>
+    <%= f.file_field :film_thumb %>
+  <% else -%>
+    <div class="left">
+      <div><%= image_tag(@film.film_thumb(:thumb), :style => 'width: 60px;') %></div>
+      <div>replace with <%= f.file_field :film_thumb %></div>
+    </div>
+  <% end -%>
+  </div>
+  <div class="actions">
+    <div class="submit"><%= f.submit %></div>
+  </div>
+<% end %>

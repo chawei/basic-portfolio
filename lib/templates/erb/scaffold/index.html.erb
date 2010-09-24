@@ -9,6 +9,9 @@
     (<%%= link_to 'add a new <%= human_name.downcase %>', new_admin_<%= singular_table_name %>_path %>)
   </div>
 
+  <%% if @<%= plural_table_name %>.empty? %>
+  Please add a new <%= human_name.downcase %>
+  <%% else %>
   <table class="index">
     <tr>
   <%- for attribute in attributes -%>
@@ -30,4 +33,5 @@
     </tr>
   <%% end %>
   </table>
+  <%% end %>
 </div>

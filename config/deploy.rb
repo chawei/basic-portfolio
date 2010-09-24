@@ -86,7 +86,7 @@ namespace :deploy do
   end
   
   desc "Create SQLite db in shared folder"
-  task :create_db do 
+  task :create_db do
     run "mkdir -p #{shared_path}/db; touch #{shared_path}/db/production.sqlite3"
   end
 
@@ -96,7 +96,7 @@ namespace :deploy do
   end
 end
 
-before "deploy:cold", :create_db
+before "deploy:cold", "deploy:create_db"
 
 namespace :db do
   desc "Dumps the #{rails_env} database to db/#{rails_env}_data.sql on the remote server"

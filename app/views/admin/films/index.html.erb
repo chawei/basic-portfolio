@@ -1,0 +1,37 @@
+<% title "Films", false %>
+
+<div class="index_container">
+  <div class="description">
+  </div>
+
+  <div class='index_header'>
+    <span class='title'>List of films</span>
+    (<%= link_to 'add a new film', new_admin_film_path %>)
+  </div>
+
+  <% if @films.empty? %>
+  Please add a new film
+  <% else %>
+  <table class="index">
+    <tr>
+      <th>Title</th>
+      <th>Director</th>
+      <th>Year</th>
+      <th></th>
+    </tr>
+
+  <% @films.each do |film| %>
+    <tr>
+      <td><%= film.title %></td>
+      <td><%= film.director %></td>
+      <td><%= film.year %></td>
+      <td class="actions">
+        <%= link_to 'View', [:admin, film] %> |
+        <%= link_to 'Edit', edit_admin_film_path(film) %> |
+        <%= link_to 'Delete', [:admin, film], :confirm => 'Are you sure?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+  <% end %>
+</div>

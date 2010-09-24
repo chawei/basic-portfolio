@@ -1,0 +1,45 @@
+<div class="nav_links">
+  <%= link_to 'Edit', edit_admin_film_path(@film) %> |
+  <%= link_to 'Back', admin_films_path %>
+</div>
+
+<div class="show_container">
+  <div class="row">
+    <div class="label">Film type</div>
+    <div class="data"><%= @film.film_type %></div>
+  </div>
+  <div class="row">
+    <div class="label">Title</div>
+    <div class="data"><%= @film.title %></div>
+  </div>
+  <div class="row">
+    <div class="label">Description</div>
+    <div class="data"><%= @film.description %></div>
+  </div>
+  <div class="row">
+    <div class="label">Director</div>
+    <div class="data"><%= @film.director %></div>
+  </div>
+  <div class="row">
+    <div class="label">Year</div>
+    <div class="data"><%= @film.year %></div>
+  </div>
+  <div class="row">
+    <div class="label">Color</div>
+    <div class="data"><%= @film.color %></div>
+  </div>
+  <div class="row">
+    <div class="label">Film length</div>
+    <div class="data"><%= @film.film_length %></div>
+  </div>
+  <div class="row">
+    <div class="label">Languages</div>
+    <div class="data"><%= @film.languages %></div>
+  </div>
+  <div class="row">
+    <label>Thumbnail</label>
+    <span>
+      <div><%= image_tag(@film.film_thumb(:thumb)) %></div>
+    </span>
+  </div>
+</div>

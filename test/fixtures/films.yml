@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  film_type: MyString
+  title: MyString
+  description: MyText
+  director: MyString
+  year: MyString
+  color: MyString
+  film_length: MyString
+  languages: MyString
+  film_thumb_file_name: MyString
+  film_thumb_content_type: MyString
+  film_thumb_file_size: MyString
+
+two:
+  film_type: MyString
+  title: MyString
+  description: MyText
+  director: MyString
+  year: MyString
+  color: MyString
+  film_length: MyString
+  languages: MyString
+  film_thumb_file_name: MyString
+  film_thumb_content_type: MyString
+  film_thumb_file_size: MyString

@@ -9,6 +9,9 @@
     (<%= link_to 'add a new article', new_admin_article_path %>)
   </div>
 
+  <% if @articles.empty? %>
+  Please add a new article
+  <% else %>
   <table class="index">
     <tr>
       <th>Title</th>
@@ -30,4 +33,5 @@
     </tr>
   <% end %>
   </table>
+  <% end %>
 </div>
