@@ -70,7 +70,15 @@ p {
       top: 0px;
       left: 0px;
       font-size: 20px;
+      font-weight: bold;
     }
+      #logo a {
+        color: #333;
+        text-decoration: none;
+      }
+      #logo a:hover {
+        color: #666;
+      }
     #login_box {
       position: absolute;
       top: 0px;
@@ -80,7 +88,11 @@ p {
       #greeting {
         float: right;
         margin: 0 15px 0 0;
+        color: #666;
       }
+        #greeting .name {
+          color: #333;
+        }
       #actions {
         float: right;
         padding: 0 0 0 15px;
@@ -98,7 +110,7 @@ p {
     width: 800px;
     height: 26px;
     line-height: 26px;
-    border-bottom: 3px solid #333;
+    border-bottom: 3px solid #29ABE2;
   }
     #navigation ul {
       list-style: none;
@@ -115,19 +127,19 @@ p {
         }
         #navigation li a {
           padding: 0px 10px;
-          margin: 0 0px 0 0;
+          margin: 0 1px 0 0;
           font-size: 15px;
           display: block;
+          background-color: #f2f2f2;
+          text-decoration: none;
         }
           #navigation li a.selected {
             color: #fff;
             background-color: #29ABE2;
           }
         #navigation li a:hover {
-          /*
           color: #fff;
-          background-color: #333;
-          */
+          background-color: #29ABE2;
         }
         #navigation li:hover ul{
           display: block;
@@ -159,7 +171,9 @@ p {
 #main_wrap {
   text-align: center;
   margin: 10px 0 0;
-  /*overflow: hidden;*/
+  min-height: 300px;
+  height: auto !important;
+  height: 300px;
 }
   #main_wrap div#main {
     text-align: left;
@@ -197,6 +211,13 @@ p {
 #footer_wrap {
   
 }
+  #footer {
+    margin: 0 auto;
+    width: 800px;
+    border-top: 1px solid #666;
+    padding: 5px 0 50px 0;
+    color: #666;
+  }
 
 /* ----- Misc ----- */
 .left {
