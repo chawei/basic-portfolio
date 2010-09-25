@@ -18,7 +18,7 @@
   <% @pages.each do |page| %>
     <tr>
       <td><%= page.title %></td>
-      <td><%= page.content %></td>
+      <td><%= truncate(page.content, :length => 50) %></td>
       <td class="actions">
         <%= link_to 'View', [:admin, page] %> |
         <%= link_to 'Edit', edit_admin_page_path(page) %> |

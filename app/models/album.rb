@@ -14,7 +14,7 @@ class Album < ActiveRecord::Base
   validates_as_image :album_cover
   
   has_attached_file :album_cover, 
-                    :styles => { :small => { :geometry => "155x155#", 
+                    :styles => { :small => { :geometry => "185x185#", 
                                              :processors => [:cropper]},
                                  :medium => { :geometry => "300x300>" } }
   

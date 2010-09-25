@@ -1,8 +1,10 @@
 class Page < ActiveRecord::Base
+  has_friendly_id :unique_name
+  
   validates_presence_of :unique_name
   
   def self.all_custom_pages
-    return [self.page('about')]
+    return [self.page('bio'), self.page('cv')]
   end
   
   def self.page(unique_name)

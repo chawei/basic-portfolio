@@ -226,6 +226,11 @@ table.index {
     width: 100px;
     font-weight: bold;
   }
+  .show_container .data {
+    display: block;
+    float: left;
+    width: 500px;
+  }
   .show_container span {
     width: 400px;
     float: left;
@@ -561,22 +566,6 @@ table.index {
 
 .block {
   display: block;
-}
-
-.clear {
-  clear: both;
-}
-.clear_fix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-/* IE7 Hack */
-.clear_fix {
-  clear: both;
-  *display: inline-block;
 }
 
 .float_container {

@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def yield_for(content_sym, default)
+    output = content_for(content_sym)
+    output = default if output.blank?
+    output
+  end
+  
   def add_object_link(name, form, object, partial, where)
     html = render(:partial => partial, :locals => { :form => form}, :object => object)
     link_to_function name, %{

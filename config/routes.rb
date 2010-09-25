@@ -1,5 +1,10 @@
 Portfolio::Application.routes.draw do
   root :to => 'home#index'
+  
+  resources :articles
+  resources :films
+  resources :albums
+  resources :pages, :controller => 'pages', :only => :show
 
   match '/admin', :to => 'admin/home#index'
   match '/admin/login', :to => 'admin/user_sessions#new'

@@ -1,0 +1,53 @@
+<div id="top_bar" class="clear_fix">
+  <div class="film_type_bar <%= params[:type] %>_selected left">
+    <%= link_to "Directorial", films_path(:type => "directorial"), :class => 'directorial' %>
+    /
+    <%= link_to "Editorial", films_path(:type => "editorial"), :class => 'editorial' %>
+  </div>
+  <div class="right">
+    <%= will_paginate @films %>
+  </div>
+</div>
+
+<div id="films_container" class="clear_fix">
+  <% @films.each_slice(2) do |films| %>
+  <% film = films.first %>
+  <div class="film">
+    <div class="section">
+      <%= image_tag film.film_thumb(:medium) %>
+      <h2><%= film.title %></h2>
+      <p class="description"><%= film.description %></p>
+    </div>
+    <div class="meta_section clear_fix">
+      <div class="left">
+        <p>Directed by: <%= film.director %></p>
+        <p><%= film.film_length %> minutes</p>
+        <p><%= film.languages %></p>
+      </div>
+      <div class="right">
+        <p><%= film.year %></p>
+        <p><%= film.color %></p>
+      </div>
+    </div>
+  </div>
+  <% film = films.last %>
+  <div class="film last_film">
+    <div class="section">
+      <%= image_tag film.film_thumb(:medium) %>
+      <h2><%= film.title %></h2>
+      <p class="description"><%= film.description %></p>
+    </div>
+    <div class="meta_section clear_fix">
+      <div class="left">
+        <p>Directed by: <%= film.director %></p>
+        <p><%= film.film_length %> minutes</p>
+        <p><%= film.languages %></p>
+      </div>
+      <div class="right">
+        <p><%= film.year %></p>
+        <p><%= film.color %></p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
