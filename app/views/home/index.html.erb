@@ -1,3 +1,5 @@
 <div>
+  <% unless @film.nil? %>
   <%= image_tag @film.film_thumb(:large) %>
+  <% end %>
 </div>
