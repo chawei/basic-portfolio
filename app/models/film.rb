@@ -10,4 +10,6 @@ class Film < ActiveRecord::Base
   
   validates_attachment_presence :film_thumb
   validates_as_image :film_thumb
+
+  named_scope :public, :conditions => { :draft => false }
 end

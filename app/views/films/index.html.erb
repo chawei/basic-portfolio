@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <% film = films.last %>
+  <% if film = films.second %>
   <div class="film last_film">
     <div class="section">
       <%= image_tag film.film_thumb(:medium) %>
@@ -49,5 +49,6 @@
       </div>
     </div>
   </div>
+  <% end %>
   <% end %>
 </div>

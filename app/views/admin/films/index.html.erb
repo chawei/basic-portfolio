@@ -17,6 +17,7 @@
       <th>Title</th>
       <th>Director</th>
       <th>Year</th>
+      <th>Draft</th>
       <th></th>
     </tr>
 
@@ -25,6 +26,7 @@
       <td><%= film.title %></td>
       <td><%= film.director %></td>
       <td><%= film.year %></td>
+      <td><%= film.draft? ? "Yes" : "No" %></td>
       <td class="actions">
         <%= link_to 'View', [:admin, film] %> |
         <%= link_to 'Edit', edit_admin_film_path(film) %> |

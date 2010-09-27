@@ -42,4 +42,8 @@
       <div><%= image_tag(@film.film_thumb(:thumb)) %></div>
     </span>
   </div>
+  <div class="row">
+    <div class="label">Draft</div>
+    <div class="data"><%= @film.draft? ? "Yes" : "No" %></div>
+  </div>
 </div>
