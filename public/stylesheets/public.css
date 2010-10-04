@@ -48,6 +48,10 @@ textarea {
 p {
   /*margin: 0 0 10px 0;*/
 }
+
+a img {
+  border: none;
+}
 /* Header
  *
  *
@@ -74,9 +78,12 @@ p {
       #logo a {
         color: #666;
         text-decoration: none;
+        background: url(/images/sprite.png) no-repeat top left;
+        background-position: 0 -192px; width: 132px; height: 35px;
+        display: block;
       }
       #logo a:hover {
-        color: #666;
+        background-position: 0 -228px; width: 132px; height: 35px;
       }
     #login_box {
       position: absolute;
@@ -100,7 +107,7 @@ p {
 
 #navigation_wrap {
   text-align: center;
-  margin: 10px 0 0;
+  margin: 25px 0 0 0px;
 }
   #navigation {
     text-align: left;
@@ -130,6 +137,7 @@ p {
           display: block;
           text-decoration: none;
           color: #666;
+          background: url(/images/sprite.png) no-repeat top left;
         }
           #navigation li a.selected {
             color: #29ABE2;
@@ -163,6 +171,27 @@ p {
           #navigation li ul li a:hover {
             color: #fff;
           }
+          
+#navigation #menu-articles a { background-position: 0 -264px; width: 33px; height: 23px; }
+#navigation #menu-films a { background-position: 0 -144px; width: 32px; height: 23px; }
+#navigation #menu-albums a { background-position: 0 -312px; width: 76px; height: 23px; }
+#navigation #menu-bio a { background-position: 0 0; width: 19px; height: 23px; }
+#navigation #menu-cv a { background-position: 0 -96px; width: 22px; height: 23px; }
+#navigation #menu-contact a { background-position: 0 -48px; width: 45px; height: 23px; }
+
+#navigation #menu-articles a:hover { background-position: 0 -288px; width: 33px; height: 23px; }
+#navigation #menu-films a:hover { background-position: 0 -168px; width: 32px; height: 23px; }
+#navigation #menu-albums a:hover { background-position: 0 -336px; width: 76px; height: 23px; }
+#navigation #menu-bio a:hover { background-position: 0 -24px; width: 19px; height: 23px; }
+#navigation #menu-cv a:hover { background-position: 0 -120px; width: 22px; height: 23px; }
+#navigation #menu-contact a:hover { background-position: 0 -72px; width: 45px; height: 23px; }
+
+#navigation #menu-articles a.selected { background-position: 0 -288px; width: 33px; height: 23px; }
+#navigation #menu-films a.selected { background-position: 0 -168px; width: 32px; height: 23px; }
+#navigation #menu-albums a.selected { background-position: 0 -336px; width: 76px; height: 23px; }
+#navigation #menu-bio a.selected { background-position: 0 -24px; width: 19px; height: 23px; }
+#navigation #menu-cv a.selected { background-position: 0 -120px; width: 22px; height: 23px; }
+#navigation #menu-contact a.selected { background-position: 0 -72px; width: 45px; height: 23px; }
     
 #main_wrap {
   text-align: center;
@@ -172,9 +201,9 @@ p {
     text-align: left;
     margin: 0 auto;
     width: 800px;
-    min-height: 300px;
+    min-height: 450px;
     height: auto !important;
-    height: 300px;
+    height: 450px;
   }
 
 
@@ -214,6 +243,10 @@ p {
   *display: inline-block;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Pagination
 --------------------- */
 .pagination {
@@ -240,18 +273,18 @@ p {
 
 #articles_container {
   background-color: #f2f2f2;
-  padding: 20px 0 20px 70px;
+  padding: 20px 0 20px 65px;
   min-height: 200px;
   height: auto !important;
   height: 200px;
 }
 
 .article {
-  margin: 0 0 10px 0;
+  margin: 0 0 30px 0;
   color: #666;
 }
   .article .date {
-    margin: 0 0 5px 0;
+    margin: 0 0 3px 0;
   }
  
 /* Films
@@ -276,13 +309,13 @@ p {
 a.film {
   width: 390px;
   float: left;
-  display: inline-block;
+  display: block;
   margin: 0 20px 0 0;
   background-color: #f2f2f2;
   text-decoration: none;
   color: #666;
 }
-.last_film {
+a.last_film {
   margin: 0;
 }
  .film h2 {
@@ -330,7 +363,7 @@ a.film {
     display: inline-block;
     width: 350px;
   }
-    #film .details .honors {
+    #film .details .awards {
       
     }
     #film .details .meta p {
@@ -339,11 +372,23 @@ a.film {
 
 /* Albums
 --------------------- */ 
+.album {
+  float: left;
+  display: inline-block;
+  margin: 0 20px 20px 0;
+  text-align: center;
+}
+  .album .title {
+    
+  }
+
 .photo_container {
   margin: 0 17px 20px 0;
   float: left;
   display: inline-block;
 }
+
+/* Vertical center */
 .photo {
   width: 185px;
   height: 185px;
@@ -364,20 +409,21 @@ a.film {
   width: 1px;
 }
 /**/
-.last_photo {
-  margin: 0 0 10px 0;
-}
-.photo img {
-} 
 
+.last_photo, .last_album {
+  margin-right: 0;
+}
+
+/* Pages
+--------------------- */
 #page_container {
   font-family: "Georgia", "Times New Roman", serif;
   color: #666;
   background-color: #f2f2f2;
-  padding: 50px 0 50px 100px;
-  min-height: 200px;
+  padding: 50px 0 50px 65px;
+  min-height: 350px;
   height: auto !important;
-  height: 200px;
+  height: 350px;
 }
   #bio_page {
     width: 500px;
@@ -385,4 +431,69 @@ a.film {
   #cv_page {
     width: 500px;
   }
+  
+#contact_container {
+  background-color: #f2f2f2;
+  padding: 50px 0 50px 30px;
+  min-height: 350px;
+  height: auto !important;
+  height: 350px;
+}
+
+/* Form
+--------------------- */
+.form_container {
+  width: 375px;
+}
+form .field {
+  margin: 0 0 10px 0;
+}
+  form .field label {
+    float: left;
+    display: block;
+    width: 100px;
+    margin: 0 10px 0 0;
+    text-align: right;
+  }
+  form .field input {
+    float: left;
+    display: block;
+    width: 250px;
+    font-size: 12px;
+    font-family: "Georgia", "Times New Roman", serif;
+  }
+  
+  .text_field {
+    float: left;
+    display: inline-block;
+    border: 1px solid #ccc;
+    outline: none;
+    height: 20px;
+    padding: 0 5px;
+  }
+  .text_field:hover, .text_field:focus {
+    border: 1px solid #aaa;
+  }
+  textarea {
+    float: left;
+    display: inline-block;
+    border: 1px solid #ccc;
+    outline: none;
+    height: 200px;
+    width: 250px;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-family: "Georgia", "Times New Roman", serif;
+  }
+  textarea:hover, textarea:focus {
+    border: 1px solid #aaa;
+  }
+  
+  .submit_field_container {
+    margin: 20px 0 0 0;
+  }
+    .submit_field {
+      float: right;
+      display: inline;
+    }
   

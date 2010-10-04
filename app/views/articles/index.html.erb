@@ -1,7 +1,9 @@
 <div id="article_index">
+  <% if @articles.total_pages > 1 %>
   <div id="top_bar" class="clear_fix">
     <div class="pagination right"><%= will_paginate @articles %></div>
   </div>
+  <% end %>
 
   <div id="articles_container">
   <% for article in @articles %>

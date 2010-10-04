@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <div style="font-size: 15px;"><strong>Request from:</strong> <a href="mailto:<%=@email%>" font-size: 15px;><%= @email %></a></div>
+    <div style="font-size: 15px;"><strong>Sent at:</strong> <%= Time.now.to_s(:db) %></div>
+    <br>
+    <div style="font-size: 15px;">Please contact them as soon as possible.</div>
+  </body>
+</html>

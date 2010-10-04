@@ -3,9 +3,16 @@
   <head>  
     <title><%=h yield_for(:title, "Portfolio") %></title>  
   
-    <%= stylesheet_link_tag "public" %>  
-  
-    <%= javascript_include_tag 'jquery', 'jquery-ui' %>
+    <%= stylesheet_link_tag "public", "orbit" %>  
+    <!--[if lt IE 8]>
+    <style>
+    .photo span {
+      display: inline-block;
+      height: 100%;
+    }
+    </style><![endif]-->
+    
+    <%= javascript_include_tag 'jquery', 'jquery-ui', 'jquery.orbit' %>
     <%= javascript_include_tag 'rails' %> 
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tag %>  
@@ -21,7 +28,7 @@
       
       <div id="header_wrap">
         <div id="header">
-          <div id="logo"><%= link_to "Wei-Hsin Yang", root_path %></div>
+          <div id="logo"><%= link_to "<span class='hidden'>Wei-Hsin Yang</span>".html_safe, root_path %></div>
         </div> <!-- END header -->
       </div>
 

@@ -6,6 +6,8 @@ Portfolio::Application.routes.draw do
   resources :albums
   resources :pages, :controller => 'pages', :only => :show
 
+  match '/contact', :to => 'home#contact'
+  
   match '/admin', :to => 'admin/home#index'
   match '/admin/login', :to => 'admin/user_sessions#new'
   match '/admin/logout', :to => 'admin/user_sessions#destroy'

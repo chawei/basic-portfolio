@@ -1,5 +1,16 @@
-<div>
-  <% unless @film.nil? %>
-  <%= image_tag @film.film_thumb(:large) %>
+<% content_for :head do %>
+<!-- Run the plugin -->
+<script type="text/javascript">
+	$(window).load(function() {
+	  $('#home_slideshow').removeClass('hidden');
+		$('#home_slideshow').orbit({startClockOnMouseOut: true, captions: true, timer: true, advanceSpeed: 5000});
+	});
+</script>
+<% end %>
+
+<div id="home_slideshow" class="hidden">
+  <% for film in @films do %>
+  <%= link_to image_tag(film.film_thumb(:large), 
+                        :caption => "<span class='title'>#{film.title}</span><span class='desc'>#{truncate(film.description, :length => 50)}</span>"), film_path(film) %>
   <% end %>
 </div>

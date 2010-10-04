@@ -28,7 +28,8 @@ img {
 
 #flash_notice, #flash_error {
   padding: 5px 8px;
-  margin: 10px 0;
+  margin: 10px auto;
+  width: 784px;
 }
 
 #flash_notice {

@@ -1,6 +1,12 @@
 class HomeController < ApplicationController
   def index
-    @film = Film.first
+    @films = Film.public
+  end
+  
+  def contact
+    if request.post?
+      ContactMailer.send_message(params['email']).deliver
+    end
   end
 
 end

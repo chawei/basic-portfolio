@@ -1,0 +1,29 @@
+<div id="contact_container">
+  <div class="form_container">
+    <%= form_tag contact_path, :class => "clear_fix", :method => "post" do %>
+      <div class="field clear_fix">
+        <label for='explanation'>&nbsp;</label>
+        <div class="left">(all fields are required.)</div>
+      </div>
+      <div class="field clear_fix">
+        <label for='name'>Your Name</label>
+        <input type="text" name="name" value="" id="name" class="text_field idle_field">
+      </div>
+      <div class="field clear_fix">
+        <label for='email'>Email</label>
+        <input type="text" name="email" value="" id="email" class="text_field idle_field">
+      </div>
+      <div class="field clear_fix">
+        <label for='message'>Message</label>
+        <textarea></textarea>
+      </div>
+      
+      <div class="submit_field_container">
+        <div class="submit_field clear_fix">
+          <input type="submit" name="submit_btn" value="Submit" id="submit_btn" class="submit_btn">
+          <a href="#">Cancel</a>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
