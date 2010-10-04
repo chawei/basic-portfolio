@@ -57,6 +57,19 @@
     </div>
   <% end -%>
   </div>
+  <div class="field clear_fix">
+    <div class="left">
+      <label for="film_thumb">Film Video</label>
+      <div class="warning"></div>
+    </div>
+  <% if @film.new_record? -%>
+    <%= f.file_field :film_video %>
+  <% else -%>
+    <div class="left">
+      <div>replace with <%= f.file_field :film_video %></div>
+    </div>
+  <% end -%>
+  </div>
   <div class="field">
     <div class="label"><%= f.label :draft %></div>
     <div class="input"><%= f.check_box :draft %></div>

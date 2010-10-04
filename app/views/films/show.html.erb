@@ -1,0 +1,38 @@
+<% content_for :head do %>
+<%= javascript_include_tag 'swfobject' %>
+<% end %>
+
+<div id="top_bar" class="clear_fix">
+  <div class="film_type_bar <%= @film.film_type.downcase %>_selected">
+    <%= link_to "Directorial", films_path(:type => "directorial"), :class => 'directorial' %>
+    /
+    <%= link_to "Editorial", films_path(:type => "editorial"), :class => 'editorial' %>
+  </div>
+</div>
+
+<div id="film">
+  <div class="movie_player">
+    <%= player({:file => @film.film_video.url, :image => @film.film_thumb.url(:preview) }, 
+               {:width => 700, :height => 450, :player_id => "jw_player-#{@film.id}", :id => "flash_player-#{@film.id}", :wmode => "transparent"}) %>
+  </div>
+
+  <h2><%= @film.title %></h2>
+  <div class="clear_fix">
+    <div class="description"><%= simple_format @film.description %></div>
+    <div class="details">
+      <div class="honors">
+        <div class="honor">
+          <span class="name"></span>
+          <span class="content"></span>
+        </div>
+      </div>
+      <div class="meta">
+        <p>Directed by: <%= @film.director %></p>
+        <p><%= @film.film_length %></p>
+        <p><%= @film.languages %></p>
+        <p><%= @film.year %></p>
+        <p><%= @film.color %></p>
+      </div>
+    </div>
+  </div>
+</div>

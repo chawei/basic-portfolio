@@ -11,7 +11,7 @@ body {
   padding: 0;
   font-size: 12px;
   font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, sans-serif;
-  color: #333;
+  color: #666;
   background-color: #e6e6e6;
 }
 
@@ -219,22 +219,47 @@ p {
 .pagination {
   
 }
- .pagination .prev_page {
-   margin: 0 8px 0 0;
- }
- .pagination .next_page {
-   margin: 0 0 0 8px;
- }
- .pagination .disabled {
-   color: #999;
- }
+  .pagination .prev_page {
+    margin: 0 8px 0 0;
+  }
+  .pagination .next_page {
+    margin: 0 0 0 8px;
+  }
+  .pagination .disabled {
+    color: #999;
+  }
 
+
+/* Articles
+--------------------- */
+#article_index #top_bar {
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 5px 10px;
+}
+
+#articles_container {
+  background-color: #f2f2f2;
+  padding: 20px 0 20px 70px;
+  min-height: 200px;
+  height: auto !important;
+  height: 200px;
+}
+
+.article {
+  margin: 0 0 10px 0;
+  color: #666;
+}
+  .article .date {
+    margin: 0 0 5px 0;
+  }
+ 
 /* Films
 --------------------- */
 #top_bar {
   border-bottom: 1px solid #999;
   padding: 0 0 3px 0;
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
 }
 .film_type_bar {
   
@@ -248,12 +273,14 @@ p {
     color: #29ABE2;
   }
   
-.film {
+a.film {
   width: 390px;
   float: left;
-  display: inline;
+  display: inline-block;
   margin: 0 20px 0 0;
   background-color: #f2f2f2;
+  text-decoration: none;
+  color: #666;
 }
 .last_film {
   margin: 0;
@@ -262,7 +289,7 @@ p {
    font-family: "Georgia", "Times New Roman", serif;
    font-size: 18px;
    font-weight: normal;
-   margin: 0 0 10px 0;
+   margin: 5px 0 10px 0;
  }
  .film .description {
    font-family: "Georgia", "Times New Roman", serif;
@@ -280,7 +307,69 @@ p {
    height: 70px;
  }
  
- 
+#film {
+  width: 700px;
+  margin: 0 auto 30px;
+}
+  #film .movie_player {
+    margin: 0 0 20px 0;
+  }
+  #film h2 {
+    padding: 3px 0;
+    margin: 0 0 10px 0;
+    border-bottom: 1px solid #999;
+    font-size: 16px;
+  }
+  #film .description {
+    float: left;
+    display: inline-block;
+    width: 320px;
+  }
+  #film .details {
+    float: right;
+    display: inline-block;
+    width: 350px;
+  }
+    #film .details .honors {
+      
+    }
+    #film .details .meta p {
+      margin: 0 0 3px 0;
+    }
+
+/* Albums
+--------------------- */ 
+.photo_container {
+  margin: 0 17px 20px 0;
+  float: left;
+  display: inline-block;
+}
+.photo {
+  width: 185px;
+  height: 185px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+.photo * {
+  vertical-align: middle;
+}
+/*\*//*/
+.photo {
+  display: block;
+}
+.photo span {
+  display: inline-block;
+  height: 100%;
+  width: 1px;
+}
+/**/
+.last_photo {
+  margin: 0 0 10px 0;
+}
+.photo img {
+} 
+
 #page_container {
   font-family: "Georgia", "Times New Roman", serif;
   color: #666;

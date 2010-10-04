@@ -8,8 +8,8 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :pages, 'Pages', admin_pages_path, :if => Proc.new { in_admin? }
     
     primary.item :articles, 'News', articles_path, :if => Proc.new { !in_admin? }
-    primary.item :films, 'Films', films_path, :if => Proc.new { !in_admin? }
-    primary.item :albums, 'Photography', albums_path, :if => Proc.new { !in_admin? }
+    primary.item :films, 'Films', films_path, :highlights_on => /\/films/, :if => Proc.new { !in_admin? }
+    primary.item :albums, 'Photography', albums_path, :highlights_on => /\/albums/, :if => Proc.new { !in_admin? }
     primary.item :bio, 'Bio', page_path('bio'), :if => Proc.new { !in_admin? }
     primary.item :cv, 'C.V.', page_path('cv'), :if => Proc.new { !in_admin? }
   end

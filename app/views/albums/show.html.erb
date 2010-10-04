@@ -1,0 +1,17 @@
+<div id="top_bar" class="clear_fix">
+  <div class="left">
+    <%= link_to "all albums", albums_path %> / <%= @album.title %>
+  </div>
+  <div class="right">
+    <%= will_paginate @photos %>
+  </div>
+</div>
+
+<div id="photos_container" class="clear_fix">
+  <% for photo in @photos %>
+  <% @photos.index(photo) % 4 == 3 ? css_class = "last_photo" : css_class = "" %>
+  <div class="photo_container <%= css_class %>">
+    <div class="photo"><span></span><%= image_tag(photo.data.url(:small)) %></div>
+  </div>
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController  
   def index
-    @albums = Album.all
+    @albums = Album.all.paginate(:per_page => 8, :page => params[:page])
     
     respond_to do |format|
       format.html # index.html.erb
@@ -10,6 +10,7 @@ class AlbumsController < ApplicationController
   
   def show
     @album = Album.find(params[:id])
+    @photos = @album.photos.paginate(:per_page => 8, :page => params[:page])
     
     respond_to do |format|
       format.html # show.html.erb

@@ -1,0 +1,15 @@
+<div id="top_bar" class="clear_fix">
+  <div class="left">
+    <%= link_to "all albums", albums_path %>
+  </div>
+  <div class="right">
+    <%= will_paginate @albums %>
+  </div>
+</div>
+
+<div id="albums_container">
+  <% for album in @albums %>
+  <% @albums.index(album) % 4 == 3 ? css_class = "last_album" : css_class = "" %>
+  <div class="album <%= css_class %>"><%= link_to image_tag(album.album_cover.url(:small)), album_path(album) %></div>
+  <% end %>
+</div>

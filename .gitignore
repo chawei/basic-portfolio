@@ -5,3 +5,4 @@ tmp/**/*
 public/system/**/*
 public/system/*
 lib/.DS_Store
+.rvmrc

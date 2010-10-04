@@ -12,7 +12,7 @@
 <div id="films_container" class="clear_fix">
   <% @films.each_slice(2) do |films| %>
   <% film = films.first %>
-  <div class="film">
+  <a class="film" href="<%= film_path(film) %>">
     <div class="section">
       <%= image_tag film.film_thumb(:medium) %>
       <h2><%= film.title %></h2>
@@ -29,9 +29,9 @@
         <p><%= film.color %></p>
       </div>
     </div>
-  </div>
+  </a>
   <% if film = films.second %>
-  <div class="film last_film">
+  <a class="film last_film" href="<%= film_path(film) %>">
     <div class="section">
       <%= image_tag film.film_thumb(:medium) %>
       <h2><%= film.title %></h2>
@@ -48,7 +48,7 @@
         <p><%= film.color %></p>
       </div>
     </div>
-  </div>
+  </a>
   <% end %>
   <% end %>
 </div>
