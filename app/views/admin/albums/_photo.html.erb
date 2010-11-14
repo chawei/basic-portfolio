@@ -4,7 +4,7 @@
   <%- end -%>
   
   <div class="photo">
-    <% form.fields_for :photos, photo, :child_index => (photo.new_record? ? "index_to_replace_with_js" : nil) do |photo_form| %>  
+    <%= form.fields_for :photos, photo, :child_index => (photo.new_record? ? "index_to_replace_with_js" : nil) do |photo_form| %>  
       <div class="sub_row">
         <label>title</label> 
         <%= photo_form.text_field :title %>

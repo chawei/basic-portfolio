@@ -1,5 +1,5 @@
 <div class="edit_container">
-<% form_for [:admin, @album], :html => { :multipart => true } do |f| %>
+<%= form_for [:admin, @album], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
 
   <div class="field">

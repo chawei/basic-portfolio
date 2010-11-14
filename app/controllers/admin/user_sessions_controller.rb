@@ -17,6 +17,6 @@ class Admin::UserSessionsController < AdminController
 
   def destroy
     current_user_session.destroy
-    redirect_to new_admin_user_sessions_url
+    redirect_to new_admin_user_session_url
   end
 end

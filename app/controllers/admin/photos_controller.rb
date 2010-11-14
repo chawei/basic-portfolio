@@ -47,7 +47,7 @@ class Admin::PhotosController < AdminController
   end
   
   def sort
-    params["photos"].each_with_index do |id, index|
+    params["photo"].each_with_index do |id, index|
       Photo.update_all(['position=?', index+1], ['id=?', id])
     end
     render :nothing => true

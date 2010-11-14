@@ -505,7 +505,11 @@ table.index {
     .index_item .handle {
       float: left;
       margin-right: 10px;
+      cursor: move;
     }
+      .index_item .handle img {
+        cursor: move;
+      }
     .index_item .thumbnails {
       margin: 10px 0 0 0;
     }

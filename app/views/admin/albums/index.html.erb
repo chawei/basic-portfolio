@@ -14,7 +14,7 @@
   Please add a new album
   <% else %>
   <%- for album in @albums -%>
-  <div id="album_<%= album.id %>" class="index_item">
+  <div id="album_<%= album.id %>" class="index_item ajax_photo_item">
     <div class="handle"><img src="/images/icons/order.png" alt="[+]"></div>
     <div class="thumbnail"><%= image_tag album.album_cover(:small) %></div>
     <div class="title">
@@ -32,4 +32,28 @@
   <%- end -%>
 </div>
 
-<%= sortable_element("albums", :url => sort_admin_albums_path) %>
+<% content_for :foot do %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('#albums').sortable({
+      axis: 'y',
+      dropOnEmpty: false,
+      handle: '.handle',
+      cursor: 'move',
+      items: '.ajax_photo_item',
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+        $.ajax({
+          type: 'post',
+          data: $('#albums').sortable('serialize'),
+          dataType: 'script',
+          complete: function(request){
+            $('#albums').effect('highlight');
+          },
+          url: "<%= sort_admin_albums_path %>"})
+        }
+      });
+  });
+</script>
+<% end %>

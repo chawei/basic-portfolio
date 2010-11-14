@@ -13,7 +13,7 @@ Portfolio::Application.routes.draw do
   match '/admin/logout', :to => 'admin/user_sessions#destroy'
   
   namespace :admin do
-    resource :user_sessions
+    resource :user_session
     resource :account, :controller => "admin/users"
     resources :users
     
@@ -21,7 +21,7 @@ Portfolio::Application.routes.draw do
     
     resources :albums do
       collection do 
-        get 'sort'
+        post 'sort'
         delete :delete_photo
       end
       member do
@@ -31,7 +31,7 @@ Portfolio::Application.routes.draw do
     
     resources :photos do
       collection do
-        get 'sort'
+        post 'sort'
       end
     end
     

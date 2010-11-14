@@ -94,8 +94,10 @@ class Admin::AlbumsController < AdminController
   end
   
   def sort
-    params["albums"].each_with_index do |id, index|
-      Album.update_all(['position=?', index+1], ['id=?', id])
+    @albums = Album.all
+    @albums.each do |album|
+      album.position = params['album'].index(album.id.to_s) + 1
+      album.save
     end
     render :nothing => true
   end
