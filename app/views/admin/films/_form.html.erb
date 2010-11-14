@@ -52,7 +52,7 @@
     <%= f.file_field :film_thumb %>
   <% else -%>
     <div class="left">
-      <div><%= image_tag(@film.film_thumb(:thumb), :style => 'width: 60px;') %></div>
+      <div><%= image_tag(@film.film_thumb(:medium), :style => 'width: 300px;') %></div>
       <div>replace with <%= f.file_field :film_thumb %></div>
     </div>
   <% end -%>
@@ -62,12 +62,13 @@
       <label for="film_thumb">Film Video</label>
       <div class="warning"></div>
     </div>
-  <% if @film.new_record? -%>
-    <%= f.file_field :film_video %>
-  <% else -%>
+  <% if @film.film_video.exists? -%>
     <div class="left">
+      <div><%= link_to "Download video", @film.film_video.path %></div>
       <div>replace with <%= f.file_field :film_video %></div>
     </div>
+  <% else -%>
+    <%= f.file_field :film_video %>
   <% end -%>
   </div>
   <div class="field">

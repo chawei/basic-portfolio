@@ -294,6 +294,9 @@ table.index {
     padding: 10px 0 0 0;
     margin: 30px 0 0 0;
   }
+    .edit_container .actions .submit_btn {
+      margin: 0 10px 0 0;
+    }
   .edit_container input[type="text"] {
     width: 300px;
   }
@@ -314,9 +317,9 @@ table.index {
       width: 80px;
       font-weight: bold;
     }
-    .edit_container .field .submit input {
-      /*background-color: #29ABE2;*/
-    }
+      .edit_container .field .submit input {
+        /*background-color: #29ABE2;*/
+      }
     
     .edit_container .photo {
       float: left;

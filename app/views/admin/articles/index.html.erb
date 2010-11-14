@@ -24,7 +24,7 @@
     <tr>
       <td><%= article.title %></td>
       <td><%= article.date %></td>
-      <td><%= article.content %></td>
+      <td><%= truncate(article.content, :length => 50) %></td>
       <td class="actions">
         <%= link_to 'View', [:admin, article] %> |
         <%= link_to 'Edit', edit_admin_article_path(article) %> |
