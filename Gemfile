@@ -24,7 +24,7 @@ gem 'sqlite3-ruby', '1.3.1', :require => 'sqlite3'
 
 gem 'simple-navigation'
 gem 'friendly_id', '~> 3.1'
-gem 'binarylogic-authlogic'
+gem 'authlogic', '2.1.6'
 gem 'will_paginate', '2.3.15'
 #gem 'will_paginate', '~> 3.0.pre2'
 gem 'paperclip'
