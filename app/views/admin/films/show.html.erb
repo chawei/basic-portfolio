@@ -52,13 +52,13 @@
   </div>
   <div class="row">
     <label>Video</label>
-    <% if @film.film_video.exists? %>
+    <% if @film.video.nil? %>
+    None
+    <% else %>
     <span>
-      <%= player({:file => @film.film_video.url, :image => @film.film_thumb.url(:preview) }, 
+      <%= player({:file => @film.video.video_data.url, :image => @film.film_thumb.url(:preview) }, 
                  {:width => 700, :height => 450, :player_id => "jw_player-#{@film.id}", :id => "flash_player-#{@film.id}", :wmode => "transparent"}) %>
     </span>
-    <% else %>
-    None
     <% end %>
   </div>
   <div class="row">

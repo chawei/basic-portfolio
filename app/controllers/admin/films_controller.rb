@@ -1,7 +1,10 @@
 class Admin::FilmsController < AdminController
+  #skip_before_filter :verify_authenticity_token, :only => [:create, :update]
+  
   # GET /films
   # GET /films.xml
   def index
+    debugger
     @films = Film.all
 
     respond_to do |format|
@@ -41,6 +44,7 @@ class Admin::FilmsController < AdminController
   # POST /films.xml
   def create
     @film = Film.new(params[:film])
+    @film.video = Video.find_by_associate_id(params[:associate_id])
 
     respond_to do |format|
       if @film.save
@@ -57,6 +61,7 @@ class Admin::FilmsController < AdminController
   # PUT /films/1.xml
   def update
     @film = Film.find(params[:id])
+    @film.video = Video.find_by_associate_id(params[:associate_id])
 
     respond_to do |format|
       if @film.update_attributes(params[:film])

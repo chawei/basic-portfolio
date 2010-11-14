@@ -37,6 +37,7 @@ Portfolio::Application.routes.draw do
     
     resources :pages
     resources :films
+    resources :videos
   end
   
   # The priority is based upon order of creation:

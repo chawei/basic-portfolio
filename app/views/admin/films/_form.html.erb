@@ -1,3 +1,32 @@
+<% content_for :head do %>
+<link href="/uploadify/uploadify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/uploadify/swfobject.js"></script>
+<script type="text/javascript" src="/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+<script type="text/javascript">
+  $(function() {  
+    <% arr = [] %>
+    <% request.env['HTTP_COOKIE'].each_char{|c| arr.push(c[0].to_s)} %>
+    <% session = arr.join("@") %>
+    
+    $('#film_video').uploadify ({
+      script          : '<%= admin_videos_path %>',
+      fileDataName    : 'video[video_data]',
+      uploader        : '/uploadify/uploadify.swf',
+      multi           : true,
+      auto            : true,
+      onComplete      : function(a, b, c, response){ $('#upload_field').html('Upload Successfully'); },
+      scriptData      : { 'format': 'json',
+                          '_method': 'post',
+                          'session_encoded' : encodeURIComponent('<%= u session %>'),
+                          'authenticity_token': encodeURIComponent('<%= u form_authenticity_token %>'),
+                          'associate_id': $('#associate_id').val()
+                        },
+      cancelImg       : '/uploadify/cancel.png'  //take care that the image is accessible
+    });
+  });
+</script>
+<% end %>
+
 <%= form_for([:admin, @film], :html => { :multipart => true }) do |f| %>
   <% if @film.errors.any? %>
     <div id="error_explanation">
@@ -48,28 +77,29 @@
       <label for="film_thumb">Film Thumbnail</label>
       <div class="warning">at least 300 x 300 pixels</div>
     </div>
-  <% if @film.new_record? -%>
-    <%= f.file_field :film_thumb %>
-  <% else -%>
+  <% if @film.film_thumb.exists? -%>
     <div class="left">
       <div><%= image_tag(@film.film_thumb(:medium), :style => 'width: 300px;') %></div>
       <div>replace with <%= f.file_field :film_thumb %></div>
     </div>
+  <% else -%>
+    <%= f.file_field :film_thumb %>
   <% end -%>
   </div>
   <div class="field clear_fix">
+    <%= hidden_field_tag 'associate_id', "#{params[:associate_id] || 'film_'+Time.now.to_i.to_s}", :id => 'associate_id' %>
     <div class="left">
       <label for="film_thumb">Film Video</label>
       <div class="warning"></div>
     </div>
-  <% if @film.film_video.exists? -%>
-    <div class="left">
-      <div><%= link_to "Download video", @film.film_video.path %></div>
-      <div>replace with <%= f.file_field :film_video %></div>
+    <div id="upload_field" class="left">
+    <% if @film.video.nil? -%>
+      <%= f.file_field :video, :id => "film_video" %>
+    <% else -%>
+      <div><%= link_to "Download video", @film.video.video_data.path %></div>
+      <div>replace with <%= f.file_field :video, :id => "film_video" %></div>
+    <% end -%>
     </div>
-  <% else -%>
-    <%= f.file_field :film_video %>
-  <% end -%>
   </div>
   <div class="field">
     <div class="label"><%= f.label :draft %></div>

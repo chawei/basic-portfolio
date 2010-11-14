@@ -65,6 +65,7 @@ namespace :deploy do
     update_code
     migrate
     symlink
+    restart
   end
   
   desc "Symlink db"
@@ -79,7 +80,7 @@ namespace :deploy do
     #run "ln -s #{shared_path}/config/environment.rb #{release_path}/config/environment.rb"
   end
 
-    # Restart passenger on deploy
+  # Restart passenger on deploy
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{current_path}/tmp/restart.txt"
