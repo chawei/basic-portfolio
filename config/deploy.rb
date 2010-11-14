@@ -1,8 +1,8 @@
 require 'bundler/capistrano'
 
 # This will specify the rvm version
-#require 'rvm/capistrano'
-#set :rvm_ruby_string, 'ruby-1.9.2-p0' # Defaults to 'default'
+require 'rvm/capistrano'
+set :rvm_ruby_string, 'ruby-1.8.7-p302' # Defaults to 'default'
 
 # http://blog.futureshock-ed.com/2009/05/draft-deploying-ruby-on-rails-app-to.html
 
