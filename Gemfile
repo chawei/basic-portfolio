@@ -24,7 +24,7 @@ gem 'sqlite3-ruby', '1.3.1', :require => 'sqlite3'
 
 gem 'simple-navigation'
 gem 'friendly_id', '~> 3.1'
-gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
+gem 'binarylogic-authlogic'
 gem 'will_paginate', '2.3.15'
 #gem 'will_paginate', '~> 3.0.pre2'
 gem 'paperclip'
