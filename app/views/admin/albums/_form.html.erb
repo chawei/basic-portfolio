@@ -3,7 +3,7 @@
   <%= f.error_messages %>
 
   <div class="field">
-    <div class="left">
+    <div class="label left">
       <%= f.label :title %>
       <div class="warning clear_fix">less than 20 characters</div>
     </div>
@@ -28,12 +28,12 @@
 
   
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <div class="label"><%= f.label :description %></div>
+    <div class="input"><%= f.text_area :description %></div>
   </div>
   
   <div class="field">
-    <div class="left">
+    <div class="label left">
       <label for="album_cover">Album cover</label>
       <div class="warning clear_fix">at least 155 x 155 pixels</div>
     </div>
@@ -59,7 +59,7 @@
   </div>
   
   <div class="field">
-    <div class="left">
+    <div class="label left">
       <label for="album_photos">Photos</label>
       <div class="warning clear_fix">657 x 438 pixels</div>
     </div>
@@ -83,8 +83,9 @@
     </div>
   </div>
   
-  <div class="field submit_row">
-    <%= f.submit "Save", :class => "submit_btn" %>
+  <div class="actions">
+    <%= f.submit :class => "submit_btn" %>
+    <%= link_to "cancel", admin_albums_path %>
   </div>
 <% end %>
 </div>

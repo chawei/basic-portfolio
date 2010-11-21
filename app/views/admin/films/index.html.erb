@@ -15,21 +15,18 @@
   <table class="index">
     <tr>
       <th>Title</th>
-      <th>Director</th>
-      <th>Year</th>
-      <th>Draft</th>
-      <th></th>
+      <th width="100">Year</th>
+      <th width="100">Draft</th>
+      <th class="actions">Actions</th>
     </tr>
 
   <% @films.each do |film| %>
     <tr>
       <td><%= film.title %></td>
-      <td><%= film.director %></td>
       <td><%= film.year %></td>
       <td><%= film.draft? ? "Yes" : "No" %></td>
       <td class="actions">
-        <%= link_to 'View', [:admin, film] %> |
-        <%= link_to 'Edit', edit_admin_film_path(film) %> |
+        <%= link_to 'View & Edit', [:admin, film] %>
         <%= link_to 'Delete', [:admin, film], :confirm => 'Are you sure?', :method => :delete %>
       </td>
     </tr>

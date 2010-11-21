@@ -1,10 +1,13 @@
-<% title "Edit Page" %>
+<% title "Edit Page", false %>
 
-<div class="nav_links">
-  <%= link_to 'View details', [:admin, @page] %> |
-  <%= link_to 'Back to List', admin_pages_path %>
-</div>
+<div id="show_wrapper">
+  <div class="nav_links clear_fix">
+    <div class="left"><%= link_to 'Back to List', admin_pages_path %></div>
+    <div class="right"><%= link_to 'View', [:admin, @page] %></div>
+  </div>
 
-<div class="edit_container">
-  <%= render 'form' %>
+  <div class="edit_container">
+    <%= render 'form' %>
+  </div>
+
 </div>

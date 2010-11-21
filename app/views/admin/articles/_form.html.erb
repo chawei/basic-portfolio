@@ -21,9 +21,47 @@
   </div>
   <div class="field">
     <div class="label"><%= f.label :content %></div>
-    <div class="input"><%= f.text_area :content %></div>
+    <div class="input left"><%= f.text_area :content, :id => 'nicEditor1' %></div>
   </div>
   <div class="actions">
-    <div class="submit"><%= f.submit %></div>
+    <%= f.submit :class => 'submit_btn' %>
+    <%= link_to "cancel", admin_articles_path %>
   </div>
 <% end %>
+
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+  bkLib.onDomLoaded(function() {
+    new nicEditor({buttonList : ['fontSize','bold','italic','underline','strikeThrough']}).panelInstance('nicEditor1');
+  });
+</script>
+
+<!--
+<script type="text/javascript" charset="utf-8">
+  var myEditor = new YAHOO.widget.SimpleEditor('yui_editor', {
+      height: '200px',
+      width: '400px',
+      dompath: true, //Turns on the bar at the bottom,
+      toolbar: {
+              buttons: [
+                  { group: 'textstyle', label: 'Font Style',
+                      buttons: [
+                          { type: 'push', label: 'Bold', value: 'bold' },
+                          { type: 'push', label: 'Italic', value: 'italic' },
+                          { type: 'push', label: 'Underline', value: 'underline' },
+                          { type: 'separator' },
+                          { type: 'spin', label: '13', value: 'fontsize', range: [ 9, 75 ], disabled: true },
+                      ]
+                  },
+                  { type: 'separator' },
+                  { group: 'indentlist', label: 'Lists', 
+                    buttons: [ 
+                      { type: 'push', label: 'Create an Unordered List', value: 'insertunorderedlist' }, 
+                      { type: 'push', label: 'Create an Ordered List', value: 'insertorderedlist' } 
+                    ] 
+                  },
+              ]
+          }
+  });
+  myEditor.render();
+</script>-->

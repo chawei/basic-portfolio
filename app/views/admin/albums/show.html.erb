@@ -4,57 +4,57 @@
   <%= javascript_include_tag "album" %>
 <% end -%>
 
-<div class="">
-  <%= link_to "Edit", edit_admin_album_path(@album) %> |
-  <%= link_to "Delete this album", [:admin, @album], :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "Back to album list", admin_albums_path %>
+<div class="nav_links clear_fix">
+  <div class="left"><%= link_to 'Back to List', admin_albums_path %></div>
+  <div class="right">
+    <%= link_to 'Edit', edit_admin_album_path(@article) %>
+    <%= link_to "Delete this album", [:admin, @album], :confirm => 'Are you sure?', :method => :delete %>
+  </div>
 </div>
 
 <div class="show_container">
-
-<div class="row">
-  <label>Title</label>
-  <span><%=h @album.title %></span>
-</div>
-    
-<div class="row">
-  <label>Album Cover</label>
-  <span>
-    <div><%= image_tag(@album.album_cover(:small)) %></div>
-    <div>title: <%= @album.album_cover_title %></div>
-  </span>
-</div>
-
-<div class="row">
-  <label>Description</label>
-  <span><%=h @album.description %></span>
-</div>
-
-<div class="row">
-  <div class="left">
-    <label>Photos</label>
-    <div class="warning clear_fix"><%=h "#{@album.photos.length} photos" %></div>
+  <div class="row">
+    <div class="label">Title</div>
+    <div class="data"><%=h @album.title %></div>
   </div>
-  <div class="left">
-    <div id="photos" class="index_view_container">
-      <% for photo in @album.photos %>
-      <div id="photo_<%= photo.id %>" class="ajax_photo_item index_item clear_fix">
-        <div class="handle"><img src="/images/icons/order.png" alt="[+]"></div>
-        <div class="photo_thumb">
-          <%= image_tag(photo.data(:thumb), :alt => photo.title) %>
-        </div>
-        <div class="name"><%=h photo.name %></div>
-        <div class="actions">
-          <%= "(Current Album Cover)" if photo.id == @album.album_cover_photo_id -%>
-          <%= link_to "Set as album cover", crop_admin_album_path(@album, :photo_id => photo.id) %> |
-          <%= link_to "Delete this photo", admin_photo_path(photo), :method => :delete, :confirm => "Are you sure?", :remote => true %>
-        </div>
-      </div>
-      <%- end -%>
+    
+  <div class="row">
+    <div class="label">Album Cover</div>
+    <div class="data">
+      <div><%= image_tag(@album.album_cover(:small)) %></div>
+      <div>title: <%= @album.album_cover_title %></div>
     </div>
   </div>
-</div>
-<div class="clear_fix"></div>
+
+  <div class="row">
+    <div class="label">Description</div>
+    <div class="data"><%=h @album.description %></div>
+  </div>
+
+  <div class="row clear_fix">
+    <div class="label left">
+      <label>Photos</label>
+      <div class="warning clear_fix"><%=h "#{@album.photos.length} photos" %></div>
+    </div>
+    <div class="left">
+      <div id="photos" class="index_view_container">
+        <% for photo in @album.photos %>
+        <div id="photo_<%= photo.id %>" class="ajax_photo_item index_item clear_fix">
+          <div class="handle"><img src="/images/icons/order.png" alt="[+]"></div>
+          <div class="photo_thumb">
+            <%= image_tag(photo.data(:thumb), :alt => photo.title) %>
+          </div>
+          <div class="name"><%=h photo.name %></div>
+          <div class="actions">
+            <%= "(Current Album Cover)" if photo.id == @album.album_cover_photo_id -%>
+            <%= link_to "Set as album cover", crop_admin_album_path(@album, :photo_id => photo.id) %> |
+            <%= link_to "Delete this photo", admin_photo_path(photo), :method => :delete, :confirm => "Are you sure?", :remote => true %>
+          </div>
+        </div>
+        <%- end -%>
+      </div>
+    </div>
+  </div>
 </div>
 
 <% content_for :foot do %>

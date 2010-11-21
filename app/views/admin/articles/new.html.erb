@@ -1,9 +1,12 @@
-<% title "Add New Article" %>
+<% title "Add New Article", false %>
 
-<div class="nav_links">
-  <%= link_to 'Back to List', admin_articles_path %>
-</div>
+<div id="show_wrapper">
+  <div class="nav_links clear_fix">
+    <div class="left"><%= link_to 'Back to List', admin_articles_path %></div>
+  </div>
 
-<div class="edit_container">
-  <%= render 'form' %>
+  <div class="edit_container">
+    <%= render 'form' %>
+  </div>
+
 </div>

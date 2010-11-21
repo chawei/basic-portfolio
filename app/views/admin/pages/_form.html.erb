@@ -17,9 +17,16 @@
   </div>
   <div class="field">
     <div class="label"><%= f.label :content %></div>
-    <div class="input"><%= f.text_area :content %></div>
+    <div class="input left"><%= f.text_area :content, :id => 'nicEditor1' %></div>
   </div>
   <div class="actions">
     <div class="submit"><%= f.submit %></div>
   </div>
 <% end %>
+
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">
+  bkLib.onDomLoaded(function() {
+    new nicEditor({buttonList : ['fontSize','bold','italic','underline','strikeThrough']}).panelInstance('nicEditor1');
+  });
+</script>

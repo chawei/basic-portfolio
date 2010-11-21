@@ -1,20 +1,21 @@
-<div class="nav_links">
-  <%= link_to 'Edit', edit_admin_article_path(@article) %> |
-  <%= link_to 'Back', admin_articles_path %>
-</div>
-
-<div class="show_container">
-  <div class="row">
-    <div class="label">Title</div>
-    <div class="data"><%= @article.title %></div>
-  </div>
-  <div class="row">
-    <div class="label">Date</div>
-    <div class="data"><%= @article.date %></div>
-  </div>
-  <div class="row">
-    <div class="label">Content</div>
-    <div class="data"><%= @article.content %></div>
+<div id="show_wrapper">
+  <div class="nav_links clear_fix">
+    <div class="left"><%= link_to 'Back to List', admin_articles_path %></div>
+    <div class="right"><%= link_to 'Edit', edit_admin_article_path(@article) %></div>
   </div>
 
+  <div class="show_container">
+    <div class="row">
+      <div class="label">Title</div>
+      <div class="data"><%= @article.title %></div>
+    </div>
+    <div class="row">
+      <div class="label">Date</div>
+      <div class="data"><%= @article.date %></div>
+    </div>
+    <div class="row">
+      <div class="label">Content</div>
+      <div class="data"><%= @article.content.html_safe %></div>
+    </div>
+  </div>
 </div>

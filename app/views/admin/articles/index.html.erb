@@ -15,19 +15,16 @@
   <table class="index">
     <tr>
       <th>Title</th>
-      <th>Date</th>
-      <th>Content</th>
-      <th></th>
+      <th width="100">Date</th>
+      <th class="actions">Actions</th>
     </tr>
 
   <% @articles.each do |article| %>
     <tr>
       <td><%= article.title %></td>
       <td><%= article.date %></td>
-      <td><%= truncate(article.content, :length => 50) %></td>
       <td class="actions">
-        <%= link_to 'View', [:admin, article] %> |
-        <%= link_to 'Edit', edit_admin_article_path(article) %> |
+        <%= link_to 'View & Edit', [:admin, article] %>
         <%= link_to 'Delete', [:admin, article], :confirm => 'Are you sure?', :method => :delete %>
       </td>
     </tr>

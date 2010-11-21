@@ -9,12 +9,15 @@
     <% session = arr.join("@") %>
     
     $('#film_video').uploadify ({
-      script          : '<%= admin_videos_path %>',
-      fileDataName    : 'video[video_data]',
+      expressInstall  : '/uploadify/expressInstall.swf',
       uploader        : '/uploadify/uploadify.swf',
       multi           : true,
       auto            : true,
-      onComplete      : function(a, b, c, response){ $('#upload_field').html('Upload Successfully'); },
+      script          : '<%= admin_videos_path %>',
+      fileDataName    : 'video[video_data]',
+      fileExt         : '*.mov;*.mp4;*.avi;*.wmv;*.flv',
+      fileDesc        : 'Movie file',
+      onComplete      : function(a, b, c, response){ $('#upload_field').html('Upload Successfully! Please remember to save the change.'); },
       scriptData      : { 'format': 'json',
                           '_method': 'post',
                           'session_encoded' : encodeURIComponent('<%= u session %>'),
@@ -73,7 +76,7 @@
     <div class="input"><%= f.text_field :languages %></div>
   </div>
   <div class="field clear_fix">
-    <div class="left">
+    <div class="label left">
       <label for="film_thumb">Film Thumbnail</label>
       <div class="warning">at least 300 x 300 pixels</div>
     </div>
@@ -88,7 +91,7 @@
   </div>
   <div class="field clear_fix">
     <%= hidden_field_tag 'associate_id', "#{params[:associate_id] || 'film_'+Time.now.to_i.to_s}", :id => 'associate_id' %>
-    <div class="left">
+    <div class="label left">
       <label for="film_thumb">Film Video</label>
       <div class="warning"></div>
     </div>

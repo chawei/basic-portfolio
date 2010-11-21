@@ -96,7 +96,6 @@ img {
   font-size: 20px;
   padding: 0 0 5px 0;
   margin: 0 0 5px 0;
-  border-bottom: 1px solid #ccc;
 }
   .description {
     margin: 0 0 5px;
@@ -174,6 +173,15 @@ textarea:focus, textarea:active {
   border: 1px solid #29ABE2;
 }
 
+/* Navigation */
+.nav_links {
+  padding: 0 0 5px 0;
+  border-bottom: 1px solid #999;
+}
+  .nav_links .right a {
+    margin: 0 0 0 15px;
+  }
+
 /* Index page */
 .index_header {
   margin: 30px 0 10px 0;
@@ -199,9 +207,12 @@ table.index {
     padding: 5px 10px 2px 0;
     text-align: left;
     min-width: 100px;
-    font-weight: normal;
+    font-weight: bold;
     border-bottom: 1px solid #e6e6e6;
     border-right: 0;
+  }
+  table.index th.actions {
+    width: 200px;
   }
   table.index th a {
     font-size: 14px;
@@ -214,23 +225,32 @@ table.index {
     vertical-align: top;
   }
     table.index td.actions {
-      text-align: right;
+      text-align: left;
+    }
+    table.index td.actions a {
+      margin-right: 15px;
     }
 
-/* Show page */  
+/* Show page */ 
+#show_wrapper {
+  margin: 0 0 0 20px;
+  width: 70%;
+} 
 .show_container {
   margin: 20px 0 20px 0;
 }
-  .show_container label, .show_container .label {
+  .show_container .label {
     display: block;
     float: left;
-    width: 100px;
+    width: 20%;
     font-weight: bold;
+    text-align: right;
+    padding: 0 15px 0 0;
   }
   .show_container .data {
     display: block;
     float: left;
-    width: 500px;
+    width: 70%;
   }
   .show_container span {
     width: 400px;
@@ -270,11 +290,13 @@ table.index {
     overflow: hidden;
     margin: 0 0 15px 0;
   }
-  .edit_container .field label {
+  .edit_container .field .label {
     display: block;
     float: left;
-    width: 150px;
+    width: 20%;
     font-weight: bold;
+    text-align: right;
+    padding: 0 15px 0 0;
   }
   .edit_container .field .photo {
     margin: 0 0 5px 0;
@@ -286,8 +308,7 @@ table.index {
     clear: both;
   }
   .edit_container .field .warning {
-    padding-right: 5px;
-    width: 145px;
+    font-weight: normal;
   }
   .edit_container .actions {
     border-top: 1px solid #d0d0d0;

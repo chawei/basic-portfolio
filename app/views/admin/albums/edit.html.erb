@@ -1,8 +1,13 @@
-<% title "Edit Album" %>
+<% title "Edit Album", false %>
 
-<div>
-  <%= link_to "View details", [:admin, @album] %> |
-  <%= link_to "Back to album list", admin_albums_path %>
+<div id="show_wrapper">
+  <div class="nav_links clear_fix">
+    <div class="left"><%= link_to 'Back to List', admin_albums_path %></div>
+    <div class="right"><%= link_to 'View details', [:admin, @album] %></div>
+  </div>
+
+  <div class="edit_container">
+    <%= render 'form' %>
+  </div>
+
 </div>
-
-<%= render :partial => 'form' %>
