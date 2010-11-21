@@ -20,7 +20,7 @@
       onComplete      : function(a, b, c, response){ $('#upload_field').html('Upload Successfully! Please remember to save the change.'); },
       scriptData      : { 'format': 'json',
                           '_method': 'post',
-                          'session_encoded' : encodeURIComponent('<%= u session %>'),
+                          'session_encoded' : '<%= u session %>',
                           'authenticity_token': encodeURIComponent('<%= u form_authenticity_token %>'),
                           'associate_id': $('#associate_id').val()
                         },
