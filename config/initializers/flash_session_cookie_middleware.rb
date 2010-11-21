@@ -16,7 +16,11 @@ class FlashSessionCookieMiddleware
   end
   
   def decode(s)
-    s.split("@").join
+    if s.gsub('@', '').match(/[a-zA-Z\_]+/).nil?
+      s.split("@").map { |c| c.to_i.chr }.join
+    else
+      s.split("@").join
+    end
   end
 end
 
