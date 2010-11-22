@@ -12,25 +12,23 @@
   <% if @films.empty? %>
   Please add a new film
   <% else %>
-  <table class="index">
-    <tr>
-      <th>Title</th>
-      <th width="100">Year</th>
-      <th width="100">Draft</th>
-      <th class="actions">Actions</th>
-    </tr>
-
   <% @films.each do |film| %>
-    <tr>
-      <td><%= film.title %></td>
-      <td><%= film.year %></td>
-      <td><%= film.draft? ? "Yes" : "No" %></td>
-      <td class="actions">
+  <div class="thumb_item left">
+    <div class="image left">
+      <%= image_tag film.film_thumb.url(:medium) %>
+    </div>
+    <div class="right_bar left">
+      <div class="actions">
         <%= link_to 'View & Edit', [:admin, film] %>
         <%= link_to 'Delete', [:admin, film], :confirm => 'Are you sure?', :method => :delete %>
-      </td>
-    </tr>
+      </div>
+      <div class="title">
+        <%= film.title %>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
   <% end %>
-  </table>
+  
   <% end %>
 </div>

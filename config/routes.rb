@@ -27,6 +27,7 @@ Portfolio::Application.routes.draw do
       member do
         get :crop
       end
+      resources :photos
     end
     
     resources :photos do

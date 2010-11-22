@@ -24,6 +24,9 @@ class Admin::PhotosController < AdminController
   
   def edit
     @photo = Photo.find(params[:id])
+    unless @album = @photo.album
+      redirect_to admin_albums_path 
+    end
   end
   
   def update
@@ -38,10 +41,20 @@ class Admin::PhotosController < AdminController
   
   def destroy
     @photo = Photo.find(params[:id])
+    if @photo.album and (@photo.lower_item or @photo.higher_item)
+      @album = @photo.album
+      @redirect_photo = @photo.lower_item || @photo.higher_item
+    end
     @photo.destroy
     flash[:notice] = "Successfully destroyed photo."
     respond_to do |format|
-      format.html { redirect_to admin_photos_url }
+      format.html do
+        if @album and @redirect_photo
+          redirect_to edit_admin_album_photo_path(@album, @redirect_photo)
+        else
+          redirect_to album_albums_path
+        end
+      end
       format.js { render :nothing => true }
     end
   end

@@ -4,7 +4,7 @@
   <div class="description">
   </div>
 
-  <div class='index_header'>
+  <div class='index_header without_line'>
     <span class='title'>List of pages</span>
   </div>
 
@@ -15,7 +15,7 @@
     </tr>
 
   <% @pages.each do |page| %>
-    <tr>
+    <tr class="data">
       <td><%= page.title %></td>
       <td class="actions">
         <%= link_to 'View & Edit', [:admin, page] %>

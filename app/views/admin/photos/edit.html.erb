@@ -1,0 +1,47 @@
+<% title "Album: #{@album.title}", false %>
+
+<div class="nav_links clear_fix">
+  <div class="left">
+    <%= link_to 'All Albums', admin_albums_path %> / <%= @album.title %>
+  </div>
+  <div class="right">
+  </div>
+</div>
+
+<div class="show_container">
+  <div id="photo_container">
+    <div class="nav_links clear_fix">
+      <div class="left">
+        <%= link_to 'Back to Album', admin_album_path(@album) %>
+      </div>
+      <div class="right">
+        <% if @photo.higher_item and @photo.higher_item.album == @album %>
+        <%= link_to 'Prev', edit_admin_album_photo_path(@album, @photo.higher_item) %>
+        <% else %>
+        <span>Prev</span>
+        <% end %>
+        <% if @photo.lower_item and @photo.lower_item.album == @album %>
+        <%= link_to 'Next', edit_admin_album_photo_path(@album, @photo.lower_item) %>
+        <% else %>
+        <span>Next</span>
+        <% end %>
+      </div>
+    </div>
+    <div class="image_container">
+      <div class="photo">
+        <span></span><%= image_tag @photo.data.url(:large) %>
+      </div>
+    </div>
+    
+    <div class="bottom_bar clear_fix">
+      <div class="actions">
+        <div class="name"><%=h @photo.name %></div>
+        <div class="actions">
+          <%= "Current Album Cover" if @photo.id == @album.album_cover_photo_id -%>
+          <%= link_to "Set as Album Cover", crop_admin_album_path(@album, :photo_id => @photo.id) %>
+          <%= link_to "Delete This Photo", admin_photo_path(@photo), :method => :delete, :confirm => "Are you sure?" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

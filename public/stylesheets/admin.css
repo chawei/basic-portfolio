@@ -188,6 +188,10 @@ textarea:focus, textarea:active {
   padding: 0 0 3px 0;
   border-bottom: 1px solid #d0d0d0;
 }
+  .index_header.without_line {
+    border-bottom: none;
+    margin: 30px 0 0px 10px;
+  }
   .index_header .title {
     margin: 0 30px 0 0;
     font-weight: bold;
@@ -199,15 +203,16 @@ table.index {
   width: 100%;
   border: 0;
 }
-  table.index tr.thead {
-    
+  table.index tr.data:nth-of-type(odd) {
+    background-color: #e6e6e6;
   }
   table.index th {
     font-size: 14px;
-    padding: 5px 10px 2px 0;
+    padding: 5px 10px 5px 10px;
     text-align: left;
     min-width: 100px;
     font-weight: bold;
+    border-top: 1px solid #ccc;
     border-bottom: 1px solid #e6e6e6;
     border-right: 0;
   }
@@ -219,7 +224,7 @@ table.index {
   }
   table.index td {
     font-size: 13px;
-    padding: 5px 10px 3px 0;
+    padding: 10px 10px 10px 10px;
     border-bottom: 1px solid #e6e6e6;
     border-right: 0;
     vertical-align: top;
@@ -230,6 +235,29 @@ table.index {
     table.index td.actions a {
       margin-right: 15px;
     }
+    
+.thumb_item {
+  width: 380px;
+  margin: 10px;
+}
+  .thumb_item .image img {
+    width: 160px;
+    margin: 0 15px 0 0;
+  }
+  .thumb_item .handle {
+    cursor: move;
+  }
+  .thumb_item .right_bar {
+    width: 200px;
+  }
+  .thumb_item .actions {
+    margin: 0px 0 10px 0;
+  }
+    .thumb_item .actions a {
+      margin: 0 10px 0 0;
+    }
+  .thumb_item .title {
+  }
 
 /* Show page */ 
 #show_wrapper {
@@ -402,6 +430,61 @@ table.index {
   border-top: none;
   padding: 0 0 0 10px;
 }
+
+/* ----- Photo ----- */
+#photo_container {
+  margin: 20px;
+  width: 750px;
+}
+  #photo_container .nav_links {
+    border-bottom: none;
+  }
+  #photo_container .nav_links span {
+    float: none;
+    width: inherit;
+    margin: 0 0 0 15px;
+    color: #999;
+  }
+  #photo_container .bottom_bar {
+    margin: 10px 0 0;
+  }
+  #photo_container .actions {
+    float: right;
+  }
+  #photo_container .actions a {
+    margin: 0 0 0 20px;
+  }
+
+  .image_container {
+    display: inline-block;
+  }
+  .image_container img {
+    margin: 0;
+  }
+  /* Vertical center */  
+  .image_container .photo {
+    width: 750px;
+    height: 500px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #333;
+    margin: auto;
+  }
+  .image_container .photo * {
+    vertical-align: middle;
+  }
+  /*\*//*/
+  .image_container .photo {
+    display: block;
+  }
+  .image_container .photo span {
+    display: inline-block;
+    height: 100%;
+    width: 1px;
+  }
+  /**/
+
 
 
 /* ----- Product Category ----- */

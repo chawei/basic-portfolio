@@ -4,12 +4,15 @@
     <title>Admin Panel <%= h("- #{yield(:title)}") unless yield(:title).blank? %></title>  
   
     <%= stylesheet_link_tag "base" %>  
-    <%= stylesheet_link_tag "admin" %>  
-  
+    <%= stylesheet_link_tag "admin", "tipsy" %>
     
-    <%= javascript_include_tag 'jquery', 'jquery-ui' %>
+    <%= javascript_include_tag 'jquery', 'jquery-ui', 'jquery.jeditable', 'jquery.tipsy' %>
     <%= javascript_include_tag 'rails' %> 
-    <%= javascript_include_tag 'application' %> 
+    <%= javascript_include_tag 'admin' %> 
+    
+    <script type="text/javascript" charset="utf-8">
+      var AUTH_TOKEN = "<%= form_authenticity_token.inspect if protect_against_forgery? %>";
+    </script>
     
     <!-- Skin CSS file -->
     <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.css">

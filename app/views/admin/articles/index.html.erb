@@ -4,7 +4,7 @@
   <div class="description">
   </div>
 
-  <div class='index_header'>
+  <div class='index_header without_line'>
     <span class='title'>List of articles</span>
     (<%= link_to 'add a new article', new_admin_article_path %>)
   </div>
@@ -20,7 +20,7 @@
     </tr>
 
   <% @articles.each do |article| %>
-    <tr>
+    <tr class="data">
       <td><%= article.title %></td>
       <td><%= article.date %></td>
       <td class="actions">
