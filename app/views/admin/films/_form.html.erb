@@ -53,7 +53,7 @@
   </div>
   <div class="field">
     <div class="label"><%= f.label :description %></div>
-    <div class="input"><%= f.text_area :description %></div>
+    <div class="input left"><%= f.text_area :description, :class => 'rich_editor' %></div>
   </div>
   <div class="field">
     <div class="label"><%= f.label :director %></div>
@@ -112,3 +112,5 @@
     <div class="submit"><%= f.submit %></div>
   </div>
 <% end %>
+
+<%= render 'admin/shared/set_rich_editor' %>

@@ -16,7 +16,7 @@
     <div class="section">
       <%= image_tag film.film_thumb(:medium) %>
       <h2><%= film.title %></h2>
-      <p class="description"><%= film.description %></p>
+      <p class="description rich_text"><%= film.description.html_safe %></p>
     </div>
     <div class="meta_section clear_fix">
       <div class="left">

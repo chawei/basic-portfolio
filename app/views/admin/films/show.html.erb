@@ -19,7 +19,7 @@
     </div>
     <div class="row">
       <div class="label">Description</div>
-      <div class="data"><%= @film.description %></div>
+      <div class="data rich_text"><%= @film.description.html_safe %></div>
     </div>
     <div class="row">
       <div class="label">Director</div>

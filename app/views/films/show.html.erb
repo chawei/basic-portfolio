@@ -18,7 +18,7 @@
 
   <h2><%= @film.title %></h2>
   <div class="clear_fix">
-    <div class="description"><%= simple_format @film.description %></div>
+    <div class="description rich_text"><%= @film.description.html_safe %></div>
     <div class="details">
       <div class="awards">
         <div class="award">

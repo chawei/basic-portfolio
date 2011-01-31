@@ -324,7 +324,7 @@ a.last_film {
    font-weight: normal;
    margin: 5px 0 10px 0;
  }
- .film .description {
+ .film .description, .film .description * {
    font-family: "Georgia", "Times New Roman", serif;
    font-size: 12px;
  }
