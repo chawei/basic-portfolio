@@ -1,4 +1,6 @@
 class Film < ActiveRecord::Base
+  acts_as_publishable
+  
   FILM_TYPES = ["Directorial", "Editorial"]
   
   has_friendly_id :title

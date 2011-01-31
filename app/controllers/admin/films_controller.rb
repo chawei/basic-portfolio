@@ -84,4 +84,12 @@ class Admin::FilmsController < AdminController
       format.xml  { head :ok }
     end
   end
+  
+  def toggle_published
+    @film = Film.find(params[:id])
+    @film.toggle_published
+    respond_to do |format|
+      format.json { render :json => { :status => 'success', :text => (@film.hidden? ? 'Publish' : 'Hide') } }
+    end
+  end
 end

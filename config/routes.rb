@@ -15,7 +15,6 @@ Portfolio::Application.routes.draw do
   namespace :admin do
     resource :user_session
     resource :account, :controller => "admin/users"
-    resources :users
     
     resources :articles do
       member do
@@ -30,18 +29,25 @@ Portfolio::Application.routes.draw do
       end
       member do
         get :crop
+        post :toggle_published
       end
       resources :photos
     end
     
+    resources :films do
+      member do
+        post :toggle_published
+      end
+    end
+    
+    resources :pages
     resources :photos do
       collection do
         post 'sort'
       end
     end
     
-    resources :pages
-    resources :films
+    resources :users
     resources :videos
   end
   

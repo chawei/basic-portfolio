@@ -26,6 +26,7 @@
       <div class="actions">
         <%= link_to 'View & Edit', [:admin, album] %>
         <%= link_to 'Delete', admin_album_path(album), :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to (album.hidden? ? 'Publish' : 'Hide'), toggle_published_admin_album_path(album), :method => :post, :remote => true, :class => 'ajax_toggle_published' %>
       </div>
       <div class='title'>
         <%=h album.title %> 

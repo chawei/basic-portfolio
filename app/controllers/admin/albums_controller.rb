@@ -101,4 +101,12 @@ class Admin::AlbumsController < AdminController
     end
     render :nothing => true
   end
+  
+  def toggle_published
+    @album = Album.find(params[:id])
+    @album.toggle_published
+    respond_to do |format|
+      format.json { render :json => { :status => 'success', :text => (@album.hidden? ? 'Publish' : 'Hide') } }
+    end
+  end
 end

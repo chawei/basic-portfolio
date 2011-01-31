@@ -4,6 +4,7 @@ class Album < ActiveRecord::Base
   has_friendly_id :title, :use_slug => true
   
   acts_as_list
+  acts_as_publishable
   default_scope :order => 'position'
   
   validates_presence_of :title

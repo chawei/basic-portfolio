@@ -3,9 +3,9 @@ class FilmsController < ApplicationController
   # GET /films.xml
   def index
     if params[:type].blank?
-      @films = Film.public.paginate(:per_page => 2, :page => params[:page])
+      @films = Film.published.paginate(:per_page => 2, :page => params[:page])
     else
-      @films = Film.public.find_all_by_film_type(params[:type].capitalize).paginate(:per_page => 2, :page => params[:page])
+      @films = Film.published.find_all_by_film_type(params[:type].capitalize).paginate(:per_page => 2, :page => params[:page])
     end
 
     respond_to do |format|

@@ -23,6 +23,7 @@
       <div class="actions">
         <%= link_to 'View & Edit', [:admin, film] %>
         <%= link_to 'Delete', [:admin, film], :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to (film.hidden? ? 'Publish' : 'Hide'), toggle_published_admin_film_path(film), :method => :post, :remote => true, :class => 'ajax_toggle_published' %>
       </div>
       <div class="title">
         <%= film.title %>
