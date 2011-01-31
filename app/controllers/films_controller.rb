@@ -17,7 +17,7 @@ class FilmsController < ApplicationController
   # GET /films/1
   # GET /films/1.xml
   def show
-    @film = Film.find(params[:id])
+    @film = Film.published.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

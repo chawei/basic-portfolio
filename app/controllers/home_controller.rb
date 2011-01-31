@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @films = Film.public
+    @films = Film.published
   end
   
   def contact
