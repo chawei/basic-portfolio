@@ -55,10 +55,15 @@ class Admin::AlbumsController < AdminController
     @album = Album.find(params[:id])
     if @album.update_attributes(params[:album])
       flash[:notice] = "Successfully updated album."
-      if params[:album][:album_cover].blank?
-        redirect_to [:admin, @album]
-      else
-        render :action => "crop"
+      respond_to do |format|
+        format.html do          
+          if params[:album][:album_cover].blank?
+            redirect_to [:admin, @album]
+          else
+            render :action => "crop"
+          end
+        end
+        format.json { render :json => @album }
       end
     else
       render :action => 'edit'

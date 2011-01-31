@@ -50,23 +50,29 @@ $(document).ready(function() {
       type      : 'textarea',
       name      :  field_name,
       data      :  function(value, settings) {
-        var elem = $(value);
-        if (elem.html() == null) {
+        try {
+          var elem = $(value);
+          if (elem.html() == null) {
+            return value;
+          } else {
+            return elem.html();
+          }
+        } catch(err) {
           return value;
-        } else {
-          return elem.html();
         }
       },
       cancel    : 'Cancel',
       submit    : 'OK',
       indicator : "<img src='/images/admin/spinner.gif' />",
-      event: 'dblclick',
+      event     : 'dblclick',
       tooltip   : 'Double-click to edit...',
       submitdata: {
         authenticity_token: AUTH_TOKEN,
-        field_name: $(this).attr('field_name').match(/\[(.*)\]/)[1]
+        field_name: $(this).attr('field_name').match(/\[(.*)\]/)[1], 
+        format: 'json'
       },
       callback: function(value, settings) {
+        /*
         var elem = $(prev_html);
         if (elem.html() == null) {
           $(this).html(value);
@@ -74,8 +80,11 @@ $(document).ready(function() {
           elem.html(value);
           $(this).html(elem.outerHTML());
         }
+        */
+        var obj = $.parseJSON(value);
+        $(this).html(obj.album.title);
       }
-    })
+    });
   });
   
 });

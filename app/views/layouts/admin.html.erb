@@ -14,16 +14,6 @@
       var AUTH_TOKEN = "<%= form_authenticity_token.inspect if protect_against_forgery? %>";
     </script>
     
-    <!-- Skin CSS file -->
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.8.2r1/build/assets/skins/sam/skin.css">
-    <!-- Utility Dependencies -->
-    <script src="http://yui.yahooapis.com/2.8.2r1/build/yahoo-dom-event/yahoo-dom-event.js"></script> 
-    <script src="http://yui.yahooapis.com/2.8.2r1/build/element/element-min.js"></script> 
-    <!-- Needed for Menus, Buttons and Overlays used in the Toolbar -->
-    <script src="http://yui.yahooapis.com/2.8.2r1/build/container/container_core-min.js"></script>
-    <!-- Source file for Rich Text Editor-->
-    <script src="http://yui.yahooapis.com/2.8.2r1/build/editor/simpleeditor-min.js"></script>
-    
     <%= csrf_meta_tag %>  
     <%= yield(:head) %>  
   </head>  

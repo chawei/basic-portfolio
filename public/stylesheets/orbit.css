@@ -17,7 +17,7 @@ div.timer:hover span.pause.active { opacity: 1; }
 div.caption { background: rgba(0,0,0,.6); width: 100%; z-index: 1000; position: absolute; bottom:-50px; color: #fff; }
 div.caption p { padding: 8px 10px 8px; font-size: 12px; text-shadow: 0px 1px 0px rgba(0,0,0,.8); margin: 0; float: right; text-align: right; }
 div.caption p span.title { font-size: 29px; margin: 0 0 5px 0; display: block; font-family: Georgia, "Times New Roman", serif;}
-div.caption p span.desc { font-size: 21px; display: block; width: 350px; padding: 0 0 10px 0; font-family: Georgia, "Times New Roman", serif;}
+div.caption p span.desc, div.caption p span.desc * { font-size: 21px; display: block; width: 350px; padding: 0 0 10px 0; font-family: Georgia, "Times New Roman", serif;}
 
 /* DIRECTIONAL NAV */
 div.orbit:hover div.slider-nav { display: block; }
