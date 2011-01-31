@@ -4,8 +4,7 @@ class Admin::FilmsController < AdminController
   # GET /films
   # GET /films.xml
   def index
-    debugger
-    @films = Film.all
+    @films = Film.all.paginate(:per_page => 6, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

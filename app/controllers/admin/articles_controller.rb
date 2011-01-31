@@ -2,7 +2,7 @@ class Admin::ArticlesController < AdminController
   # GET /articles
   # GET /articles.xml
   def index
-    @articles = Article.all
+    @articles = Article.all.paginate(:per_page => 10, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -78,6 +78,14 @@ class Admin::ArticlesController < AdminController
     respond_to do |format|
       format.html { redirect_to(admin_articles_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def toggle_published
+    @article = Article.find(params[:id])
+    @article.toggle_published
+    respond_to do |format|
+      format.json { render :json => { :status => 'success', :text => (@article.hidden? ? 'Publish' : 'Hide') } }
     end
   end
 end

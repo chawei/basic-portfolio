@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101114072806) do
+ActiveRecord::Schema.define(:version => 20110129235851) do
 
   create_table "albums", :force => true do |t|
     t.string   "album_cover_title",        :default => ""
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20101114072806) do
     t.datetime "album_cover_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state",                    :default => "hidden"
   end
 
   create_table "articles", :force => true do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20101114072806) do
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state",      :default => "hidden"
   end
 
   create_table "films", :force => true do |t|
@@ -53,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20101114072806) do
     t.string   "film_video_file_name"
     t.string   "film_video_content_type"
     t.string   "film_video_file_size"
+    t.string   "state",                   :default => "hidden"
   end
 
   create_table "pages", :force => true do |t|

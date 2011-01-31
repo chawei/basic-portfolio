@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.xml
   def index
-    @articles = Article.all.paginate(:per_page => 5, :page => params[:page])
+    @articles = Article.published.paginate(:per_page => 5, :page => params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,5 +20,4 @@ class ArticlesController < ApplicationController
       format.xml  { render :xml => @article }
     end
   end
-  
 end

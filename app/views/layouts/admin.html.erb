@@ -1,10 +1,10 @@
-<!DOCTYPE html>  
+<!DOCTYPE html> 
 <html>  
   <head>  
     <title>Admin Panel <%= h("- #{yield(:title)}") unless yield(:title).blank? %></title>  
   
     <%= stylesheet_link_tag "base" %>  
-    <%= stylesheet_link_tag "admin", "tipsy" %>
+    <%= stylesheet_link_tag "admin", "tipsy", "rich_text" %>
     
     <%= javascript_include_tag 'jquery', 'jquery-ui', 'jquery.jeditable', 'jquery.tipsy' %>
     <%= javascript_include_tag 'rails' %> 

@@ -9,6 +9,8 @@
 <div class='index_header'>
   <span class='title'>List of albums</span>
   (<%= link_to "add a new album", new_admin_album_path %>)
+  
+  <span class="right"><%= will_paginate(@albums)%></span>
 </div>
 
 <div id="albums" class="index_container clear_fix">

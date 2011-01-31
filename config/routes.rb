@@ -17,7 +17,11 @@ Portfolio::Application.routes.draw do
     resource :account, :controller => "admin/users"
     resources :users
     
-    resources :articles
+    resources :articles do
+      member do
+        post :toggle_published
+      end
+    end
     
     resources :albums do
       collection do 

@@ -1,0 +1,28 @@
+.rich_text img {
+  border: 1px solid #aaa;
+}
+
+.rich_text a {
+  color: #7AA821;
+  text-decoration: none;
+}
+
+.rich_text a:hover {
+  text-decoration: underline;
+}
+
+.rich_text a:visited {
+  color: #4C6916;
+}
+
+.rich_text ul {
+  list-style: disc inside none;
+  margin: 5px 0;
+  padding: 0 0 0 3px;
+}
+
+.rich_text ol {
+  list-style-position: inside;
+  margin: 5px 0;
+  padding: 0; 
+}

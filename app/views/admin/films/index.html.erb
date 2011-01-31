@@ -4,9 +4,11 @@
   <div class="description">
   </div>
 
-  <div class='index_header'>
+  <div class='index_header clear_fix'>
     <span class='title'>List of films</span>
     (<%= link_to 'add a new film', new_admin_film_path %>)
+    
+    <span class="right"><%= will_paginate(@films)%></span>
   </div>
 
   <% if @films.empty? %>

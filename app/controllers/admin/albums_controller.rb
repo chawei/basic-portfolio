@@ -1,6 +1,6 @@
 class Admin::AlbumsController < AdminController  
   def index
-    @albums = Album.all
+    @albums = Album.all.paginate(:per_page => 6, :page => params[:page])
     
     respond_to do |format|
       format.html # index.html.erb

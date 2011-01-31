@@ -7,6 +7,8 @@
   <div class='index_header without_line'>
     <span class='title'>List of articles</span>
     (<%= link_to 'add a new article', new_admin_article_path %>)
+    
+    <span class="right"><%= will_paginate(@articles)%></span>
   </div>
 
   <% if @articles.empty? %>
@@ -26,6 +28,7 @@
       <td class="actions">
         <%= link_to 'View & Edit', [:admin, article] %>
         <%= link_to 'Delete', [:admin, article], :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to (article.hidden? ? 'Publish' : 'Hide'), toggle_published_admin_article_path(article), :method => :post, :remote => true, :class => 'ajax_toggle_published' %>
       </td>
     </tr>
   <% end %>

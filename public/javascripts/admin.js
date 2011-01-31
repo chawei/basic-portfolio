@@ -8,14 +8,24 @@ function remove_field(element, item) {
   element.parents(item).remove();
 }
 
-jQuery(function($) {
+$(document).ready(function() {
   $(".ajax_photo_item")
     //.bind("ajax:loading",  toggleLoading)
     //.bind("ajax:complete", toggleLoading)
-    .bind("ajax:success", function(data, status, xhr) {
+    .bind("ajax:success", function(event, data, status, xhr) {
       // why not data?!?
       $(this).fadeOut();
-  });
+    });
+  
+  $(".ajax_toggle_published")
+    //.bind("ajax:loading",  toggleLoading)
+    //.bind("ajax:complete", toggleLoading)
+    .bind("ajax:success", function(event, data, status, xhr) {
+      obj = jQuery.parseJSON(data);
+      if(obj.status == "success") {
+        $(this).text(obj.text);
+      }
+    });
 });
 
 $(document).ready(function() {

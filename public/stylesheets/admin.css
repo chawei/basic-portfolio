@@ -217,7 +217,7 @@ table.index {
     border-right: 0;
   }
   table.index th.actions {
-    width: 200px;
+    width: 230px;
   }
   table.index th a {
     font-size: 14px;
@@ -747,23 +747,6 @@ a.ajax_link:hover .public, a.ajax_link:hover .private {
   
 .hide {
   display: none;
-}
-
-.rich_text img {
-  border: 1px solid #aaa;
-}
-
-.rich_text a {
-  color: #7AA821;
-  text-decoration: none;
-}
-
-.rich_text a:hover {
-  text-decoration: underline;
-}
-
-.rich_text a:visited {
-  color: #4C6916;
 }
 
 #server_info_container {
