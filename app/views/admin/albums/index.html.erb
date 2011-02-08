@@ -20,7 +20,11 @@
   <%- for album in @albums -%>
   <div id="album_<%= album.id %>" class="thumb_item left ajax_photo_item">
     <div class="left">
-      <div class="image handle"><%= image_tag album.album_cover(:small) %></div>
+      <div class="image handle">
+        <%= link_to [:admin, album] do %> 
+        <%= image_tag album.album_cover(:small) %>
+        <% end %>
+      </div>
     </div>
     <div class="right_bar left">
       <div class="actions">

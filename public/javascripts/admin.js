@@ -36,20 +36,33 @@ $(document).ready(function() {
     }
   });
   
-  $('.edit_textfield').tipsy({gravity: 'e'});
-  $('.edit_textfield').dblclick(function(){$(".tipsy").hide();});
+  $('.inline_edit_field').tipsy({gravity: 'e'});
+  $('.inline_edit_field').dblclick(function(){$(".tipsy").hide();});
+  
+  $('.inline_edit_textarea').mouseover(function(){
+    var textarea = $(this).find('textarea');
+    textarea.autogrow();
+  });
 
+  $('textarea').not('.rich_editor').autogrow();
+  
   /* Inline Editing
    * ----------------------- */
-  $(".edit_textfield").each( function(i) {
-    var url = $(this).parent('tr').attr('url');
+  $(".inline_edit_field").each( function(i) {
     var field_name = $(this).attr('field_name');
-    var prev_html = $(this).html();
-    $(this).editable(url, {
+    var model_name = field_name.match(/(.*)\[/)[1];
+    var model_attr = field_name.match(/\[(.*)\]/)[1];
+    var field_type = 'text'
+    if ($(this).hasClass('inline_edit_textarea')) {
+      field_type = 'textarea';
+    }
+    $(this).editable('', {
       method    : 'PUT',
-      type      : 'textarea',
-      name      :  field_name,
-      data      :  function(value, settings) {
+      type      : field_type,
+      name      : field_name,
+      data      : function(value, settings) {
+        return $.trim(value);
+        /*
         try {
           var elem = $(value);
           if (elem.html() == null) {
@@ -60,31 +73,34 @@ $(document).ready(function() {
         } catch(err) {
           return value;
         }
+        */
       },
       cancel    : 'Cancel',
       submit    : 'OK',
-      indicator : "<img src='/images/admin/spinner.gif' />",
+      indicator : "<img src='/images/admin/spinner.gif' style='border: none'/>",
       event     : 'dblclick',
       tooltip   : 'Double-click to edit...',
       submitdata: {
         authenticity_token: AUTH_TOKEN,
-        field_name: $(this).attr('field_name').match(/\[(.*)\]/)[1], 
+        field_name: model_attr, 
         format: 'json'
       },
       callback: function(value, settings) {
-        /*
-        var elem = $(prev_html);
-        if (elem.html() == null) {
-          $(this).html(value);
-        } else {
-          elem.html(value);
-          $(this).html(elem.outerHTML());
-        }
-        */
         var obj = $.parseJSON(value);
-        $(this).html(obj.album.title);
+        $(this).html(obj[model_name][model_attr]);
       }
     });
   });
   
 });
+
+$.fn.hasScrollBar = function() {
+  //note: clientHeight= height of holder
+  //scrollHeight= we have content till this height
+  var _elm = $(this)[0];
+  var _hasScrollBar = false; 
+  if ((_elm.clientHeight < _elm.scrollHeight) || (_elm.clientWidth < _elm.scrollWidth)) {
+      _hasScrollBar = true;
+  }
+  return _hasScrollBar;
+}

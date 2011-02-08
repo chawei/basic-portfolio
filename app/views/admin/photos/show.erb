@@ -34,7 +34,9 @@
     </div>
     
     <div class="bottom_bar clear_fix">
-      <div class="inline_edit_field inline_edit_textfield name" field_name="photo[title]"><%=h @photo.name || 'Add Photo Caption here' %></div>        
+      <div class="inline_edit_field inline_edit_textfield name" field_name="photo[title]">
+        <%=h @photo.title || 'Add Photo Caption here' %>
+      </div>
       <div class="actions">
         <%= "Current Album Cover" if @photo.id == @album.album_cover_photo_id -%>
         <%= link_to "Set as Album Cover", crop_admin_album_path(@album, :photo_id => @photo.id) %>

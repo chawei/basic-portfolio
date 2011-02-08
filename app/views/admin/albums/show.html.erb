@@ -15,11 +15,11 @@
 
 <div class="show_container">
   <div class="row">
-    <div class="edit_textfield" field_name="album[title]"><%=h @album.title %></div>
+    <div class="inline_edit_field inline_edit_textfield" field_name="album[title]"><%=h @album.title %></div>
   </div>
 
   <div class="row">
-    <%=h @album.description %>
+    <div class="inline_edit_field inline_edit_textarea" field_name="album[description]"><%=h @album.description %></div>
   </div>
 
   <div class="row clear_fix">
@@ -27,7 +27,7 @@
       <% for photo in @album.photos %>
       <div id="photo_<%= photo.id %>" class="ajax_photo_item left">
         <div class="handle">
-          <a href="<%= edit_admin_album_photo_path(@album, photo) %>">
+          <a href="<%= admin_album_photo_path(@album, photo) %>">
             <%= image_tag(photo.data(:thumb), :alt => photo.title) %>
           </a>
         </div>

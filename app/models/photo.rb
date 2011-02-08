@@ -12,11 +12,10 @@ class Photo < ActiveRecord::Base
                                         :thumb => "84x54#" }
   
   validates_attachment_presence :data
-  validates_attachment_size :data, :less_than => 5.megabytes
+  validates_attachment_size :data, :less_than => 5.megabytes, :if => Proc.new { |imports| !imports.data.file? }
   validates_as_image :data
   
   def album
-    debugger
     if self.imageable_type == "Album"
       return Album.find(self.imageable_id)
     else

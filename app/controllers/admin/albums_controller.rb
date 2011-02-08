@@ -54,9 +54,9 @@ class Admin::AlbumsController < AdminController
   def update
     @album = Album.find(params[:id])
     if @album.update_attributes(params[:album])
-      flash[:notice] = "Successfully updated album."
       respond_to do |format|
-        format.html do          
+        format.html do
+          flash[:notice] = "Successfully updated album."
           if params[:album][:album_cover].blank?
             redirect_to [:admin, @album]
           else

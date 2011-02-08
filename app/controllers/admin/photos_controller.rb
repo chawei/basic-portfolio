@@ -6,6 +6,9 @@ class Admin::PhotosController < AdminController
   
   def show
     @photo = Photo.find(params[:id])
+    unless @album = @photo.album
+      redirect_to admin_albums_path 
+    end
   end
   
   def new
@@ -32,10 +35,18 @@ class Admin::PhotosController < AdminController
   def update
     @photo = Photo.find(params[:id])
     if @photo.update_attributes(params[:photo])
-      flash[:notice] = "Successfully updated photo."
-      redirect_to [:admin, @photo]
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Successfully updated photo."     
+          redirect_to [:admin, @photo]
+        end
+        format.json { render :json => @photo }
+      end
     else
-      render :action => 'edit'
+      respond_to do |format|
+        format.html { render :action => 'edit' }
+        format.json { render :json => @photo }
+      end
     end
   end
   

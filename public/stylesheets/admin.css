@@ -351,7 +351,7 @@ table.index {
   }
   .edit_container textarea {
     width: 300px;
-    height: 350px;
+    height: 250px;
   }
   .edit_container textarea.css {
     width: 500px;
@@ -448,6 +448,9 @@ table.index {
   #photo_container .bottom_bar {
     margin: 10px 0 0;
   }
+  #photo_container .name {
+    float: left;
+  }
   #photo_container .actions {
     float: right;
   }
@@ -485,7 +488,33 @@ table.index {
   }
   /**/
 
+/* Albums 
+----------------------- */
+.inline_edit_textfield {
+  width: 300px;
+}
+.inline_edit_textarea {
+  width: 400px;
+}
 
+.inline_edit_textfield input {
+  border: 1px solid #aaa;
+  padding: 1px 3px;
+  margin: 0 0 3px 0;
+  font-size: 13px;
+  outline: none; /* Remove Safari/Chrome textinput/textarea glow */
+}
+.inline_edit_textfield input:hover {
+  border: 1px solid #ccc;
+}
+.inline_edit_textfield input:focus, input:active {
+  border: 1px solid #29ABE2;
+}
+
+.inline_edit_field form button {
+  margin: 0 5px 0 0;
+  padding: 5px;
+}
 
 /* ----- Product Category ----- */
 .explanation {
