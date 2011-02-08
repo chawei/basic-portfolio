@@ -11,7 +11,10 @@
   <% for photo in @photos %>
   <% @photos.index(photo) % 4 == 3 ? css_class = "last_photo" : css_class = "" %>
   <div class="photo_container <%= css_class %>">
-    <a class="photo" rel="prettyPhoto[pp_gal]" href="<%= photo.data.url(:large) %>" title=""><span></span><%= image_tag(photo.data.url(:small), :alt => photo.title) %></a>
+    <div class="photo">
+      <span></span>
+      <a rel="prettyPhoto[pp_gal]" href="<%= photo.data.url(:large) %>" title=""><%= image_tag(photo.data.url(:small), :alt => photo.title) %></a>
+    </div>
   </div>
   <% end %>
 </div>
