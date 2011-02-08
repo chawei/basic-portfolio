@@ -11,7 +11,7 @@ gem 'sqlite3-ruby', '1.3.1', :require => 'sqlite3'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # Bundle the extra gems:
 # gem 'bj'
