@@ -37,11 +37,17 @@ $(document).ready(function() {
   });
   
   $('.inline_edit_field').tipsy({gravity: 'e'});
-  $('.inline_edit_field').dblclick(function(){$(".tipsy").hide();});
+  $('.inline_edit_field').dblclick(function(){
+    $(".tipsy").hide();
+  });
   
-  $('.inline_edit_textarea').mouseover(function(){
-    var textarea = $(this).find('textarea');
-    textarea.autogrow();
+  $('.inline_edit_textarea textarea').live('keydown', function(){
+    //var textarea = $(this).find('textarea');
+    var textarea = $(this);
+    if(!textarea.hasClass('isAutogrow')) {
+      textarea.autogrow();
+      textarea.addClass('isAutogrow');
+    }
   });
 
   $('textarea').not('.rich_editor').autogrow();
