@@ -9,7 +9,7 @@
     <%= link_to 'All Albums', admin_albums_path %> / <%= @album.title %>
   </div>
   <div class="right">
-    <%= link_to 'Add photo', edit_admin_album_path(@article) %>
+    <%= link_to 'Edit', edit_admin_album_path(@article) %>
   </div>
 </div>
 
@@ -18,9 +18,11 @@
     <div class="inline_edit_field inline_edit_textfield" field_name="album[title]"><%=h @album.title %></div>
   </div>
 
+<!--
   <div class="row">
     <div class="inline_edit_field inline_edit_textarea" field_name="album[description]"><%=h @album.description %></div>
   </div>
+-->
 
   <div class="row clear_fix">
     <div id="photos" class="index_view_container">

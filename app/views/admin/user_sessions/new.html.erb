@@ -1,27 +1,29 @@
 <% title "Log In" %>
 
-<div class="edit_container">
-  <%= form_for([:admin, @user_session]) do |f| %>
-    <%= f.error_messages %>
-    <div class="field">
-      <%= f.label :username %>
-      <%= f.text_field :username %>
-      <div class="clear_fix"></div>
-    </div>
+<div id="login_container">
+  <div class="edit_container">
+    <%= form_for([:admin, @user_session]) do |f| %>
+      <%= f.error_messages %>
+      <div class="field">
+        <%= f.label :username, :class => 'label' %>
+        <%= f.text_field :username %>
+        <div class="clear_fix"></div>
+      </div>
 
-    <div class="field">
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-      <div class="clear_fix"></div>
-    </div>
+      <div class="field">
+        <%= f.label :password, :class => 'label' %>
+        <%= f.password_field :password %>
+        <div class="clear_fix"></div>
+      </div>
 
-    <!-- Uncomment this if you want this functionality
-    <div class="form_row"><%= label_tag 'remember_me', 'Remember me' %>
-    <%= check_box_tag 'remember_me', '1', @remember_me %></div>
-    -->
+      <!-- Uncomment this if you want this functionality
+      <div class="form_row"><%= label_tag 'remember_me', 'Remember me' %>
+      <%= check_box_tag 'remember_me', '1', @remember_me %></div>
+      -->
 
-    <div class="field">
-      <div class="submit"><%= f.submit 'Log in' %></div>
-    </div>
-  <% end -%>
+      <div class="field actions">
+        <div class="submit"><%= f.submit 'Log in' %></div>
+      </div>
+    <% end -%>
+  </div>
 </div>

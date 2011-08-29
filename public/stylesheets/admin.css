@@ -305,6 +305,15 @@ table.index {
     width: inherit;
   }
 
+/* Login page */
+#login_container {
+  
+}
+  #login_container .label {
+    width: 80px;
+    text-align: left;
+  }
+
 /* Edit page */
 .edit_container {
   margin: 20px 0 30px 0;

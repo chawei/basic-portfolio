@@ -7,9 +7,9 @@
 
   <div id="articles_container">
   <% for article in @articles %>
-    <div class="article">
+    <div class="article rich_text">
       <div class="date"><%= article.date %></div>
-      <div class="content rich_text"><%= simple_format article.content %></div>
+      <div class="content rich_text"><%= article.content.html_safe %></div>
     </div>
   <% end %>
   </div>

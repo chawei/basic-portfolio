@@ -1,18 +1,18 @@
-<% title "Articles", false %>
+<% title "News", false %>
 
 <div class="index_container">
   <div class="description">
   </div>
 
   <div class='index_header without_line'>
-    <span class='title'>List of articles</span>
-    (<%= link_to 'add a new article', new_admin_article_path %>)
+    <span class='title'>List of news</span>
+    (<%= link_to 'add a new news', new_admin_article_path %>)
     
     <span class="right"><%= will_paginate(@articles)%></span>
   </div>
 
   <% if @articles.empty? %>
-  Please add a new article
+  Please add a new news
   <% else %>
   <table class="index">
     <tr>
