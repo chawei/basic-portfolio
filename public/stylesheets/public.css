@@ -310,7 +310,7 @@ a img {
     text-decoration: none;
   }
 
-  .directorial_selected .directorial, .editorial_selected .editorial {
+  .directorial_selected .directorial, .editorial_selected .editorial, ._selected .all {
     color: #29ABE2;
   }
   
@@ -339,7 +339,12 @@ a.last_film {
  .film .section {
    padding: 10px;
    border-bottom: 1px solid #999;
+   /*
+   min-height: 300px;
+   height: auto !important;
+   */
    height: 300px;
+   overflow: hidden;
  }
   .film .section:hover img {
     opacity: 0.7;

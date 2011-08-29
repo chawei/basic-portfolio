@@ -1,13 +1,4 @@
-<div id="top_bar" class="clear_fix">
-  <div class="film_type_bar <%= params[:type] %>_selected left">
-    <%= link_to "Directorial", films_path(:type => "directorial"), :class => 'directorial' %>
-    /
-    <%= link_to "Editorial", films_path(:type => "editorial"), :class => 'editorial' %>
-  </div>
-  <div class="right">
-    <%= will_paginate @films %>
-  </div>
-</div>
+<%= render 'header' %>
 
 <div id="films_container" class="clear_fix">
   <% @films.each_slice(2) do |films| %>
@@ -16,7 +7,7 @@
     <div class="section">
       <%= image_tag film.film_thumb(:medium) %>
       <h2><%= film.title %></h2>
-      <p class="description rich_text"><%= film.description.html_safe %></p>
+      <div class="description rich_text"><%= film.description.html_safe.truncate(100) %></div>
     </div>
     <div class="meta_section clear_fix">
       <div class="left">
@@ -35,7 +26,7 @@
     <div class="section">
       <%= image_tag film.film_thumb(:medium) %>
       <h2><%= film.title %></h2>
-      <p class="description rich_text"><%= film.description.html_safe %></p>
+      <div class="description rich_text"><%= film.description.html_safe %></div>
     </div>
     <div class="meta_section clear_fix">
       <div class="left">
@@ -52,3 +43,11 @@
   <% end %>
   <% end %>
 </div>
+
+<% content_for :foot do %>
+  <script type="text/javascript" charset="utf-8">
+    jQuery(function($) { 
+      //$('.film .description').jTruncate({ 'length': 100 });  
+    });
+  </script>
+<% end %>

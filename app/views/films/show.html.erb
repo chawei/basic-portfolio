@@ -4,6 +4,8 @@
 
 <div id="top_bar" class="clear_fix">
   <div class="film_type_bar <%= @film.film_type.downcase %>_selected">
+    <%= link_to "All", films_path, :class => 'all' %>
+    /
     <%= link_to "Directorial", films_path(:type => "directorial"), :class => 'directorial' %>
     /
     <%= link_to "Editorial", films_path(:type => "editorial"), :class => 'editorial' %>
