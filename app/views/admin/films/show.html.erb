@@ -53,11 +53,11 @@
     </div>
     <div class="row">
       <div class="label">Video</div>
-      <% if @film.video.nil? %>
+      <% if @film.film_video.nil? %>
       None
       <% else %>
       <span>
-        <%= player({:file => @film.video.video_data.url, :image => @film.film_thumb.url(:preview) }, 
+        <%= player({:file => @film.film_video.url, :image => @film.film_thumb.url(:preview) }, 
                    {:width => 370, :height => 239, :player_id => "jw_player-#{@film.id}", :id => "flash_player-#{@film.id}", :wmode => "transparent"}) %>
       </span>
       <% end %>

@@ -17,7 +17,7 @@
   <% @films.each do |film| %>
   <div class="thumb_item left">
     <div class="image left">
-      <%= image_tag film.film_thumb.url(:medium) %>
+      <%= link_to image_tag(film.film_thumb.url(:medium)), [:admin, film] %>
     </div>
     <div class="right_bar left">
       <div class="actions">

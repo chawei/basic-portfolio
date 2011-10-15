@@ -11,6 +11,6 @@
 <div id="home_slideshow" class="hidden">
   <% for film in @films do %>
   <%= link_to image_tag(film.film_thumb(:large), 
-                        :caption => "<span class='title'>#{film.title}</span><span class='desc'>#{truncate(film.description, :length => 50)}</span>"), film_path(film) %>
+                        :caption => "<span class='title'>#{film.title}</span>"), film_path(film) %>
   <% end %>
 </div>

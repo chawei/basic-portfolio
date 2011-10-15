@@ -78,7 +78,7 @@
   <div class="field clear_fix">
     <div class="label left">
       <label for="film_thumb">Film Thumbnail</label>
-      <div class="warning">300 x 300 pixels</div>
+      <div class="warning">at least 800 pixels wide</div>
     </div>
   <% if @film.film_thumb.exists? -%>
     <div class="left">
@@ -96,10 +96,10 @@
       <div class="warning"></div>
     </div>
     <div id="upload_field" class="left">
-    <% if @film.video.nil? -%>
+    <% if @film.film_video.nil? -%>
       <%= f.file_field :video, :id => "film_video" %>
     <% else -%>
-      <div><%= link_to "Download video", @film.video.video_data.path %></div>
+      <div><%= link_to "Download video", @film.film_video.url %></div>
       <div>replace with <%= f.file_field :video, :id => "film_video" %></div>
     <% end -%>
     </div>

@@ -1,6 +1,10 @@
+<% content_for :title do %>
+  - Photography
+<% end %>
+
 <div id="top_bar" class="clear_fix">
   <div class="left">
-    <%= link_to "all albums", albums_path %>
+    <%= link_to "All Albums", albums_path %>
   </div>
   <div class="right">
     <%= will_paginate @albums %>

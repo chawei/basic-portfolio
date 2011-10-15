@@ -1,3 +1,7 @@
+<% content_for :title do %>
+  - Bio
+<% end %>
+
 <div id="page_container">
   <div id="bio_page" class="rich_text">
     <%= @page.content.html_safe %>
