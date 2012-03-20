@@ -70,7 +70,6 @@
         </div>
         <%- end -%>
       </div>
-      <%= sortable_element("photos", :url => sort_admin_photos_path) %>
       
       <div id="new_photos">
          <% if @album.new_record? %>
@@ -88,3 +87,29 @@
   </div>
 <% end %>
 </div>
+
+<% content_for :foot do %>
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    $('#photos').sortable({
+      dropOnEmpty: false,
+      handle:      '.handle',
+      cursor:      'move',
+      items:       '.ajax_photo_item',
+      opacity:     0.4,
+      axis:        'y',
+      scroll:      true,
+      update: function(){
+        $.ajax({
+          type: 'post',
+          data: $('#photos').sortable('serialize'),
+          dataType: 'script',
+          complete: function(request){
+            $('#photos').effect('highlight');
+          },
+          url: "<%= sort_admin_photos_path %>"})
+        }
+      });
+  });
+</script>
+<% end %>
