@@ -10,13 +10,26 @@
       width:        400, // width not including margins, borders or padding
       height:       350, // height not including margins, borders or padding
       controls:     // controls to add to the toolbar
-                    "bold italic underline strikethrough " +
+                    "bold italic underline " +
                     "removeformat | bullets numbering | " +
-                    "alignleft center alignright justify | undo redo | " +
+                    "undo redo | " +
                     "image link unlink | cut copy paste pastetext | source",
       docCSSFile:   "/stylesheets/cleditor.css",
       bodyStyle:    // style to assign to document body contained within the editor
-                    "margin:4px; font:10pt Helvetica, sans-serif; cursor:text"
+                    "margin:4px; cursor:text"
+    });
+    
+    $("#news_rich_editor").cleditor({
+      width:        400, // width not including margins, borders or padding
+      height:       350, // height not including margins, borders or padding
+      controls:     // controls to add to the toolbar
+                    "bold italic underline " +
+                    "removeformat | bullets numbering | " +
+                    "undo redo | " +
+                    "image link unlink | cut copy paste pastetext | source",
+      docCSSFile:   "/stylesheets/cleditor_for_news.css",
+      bodyStyle:    // style to assign to document body contained within the editor
+                    "margin:4px; cursor:text"
     });
   });
 </script>

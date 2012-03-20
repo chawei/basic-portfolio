@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
   validates_presence_of :unique_name
   
   def self.all_custom_pages
-    return [self.page('bio'), self.page('cv')]
+    return [self.page('bio'), self.page('cv'), self.page('contact')]
   end
   
   def self.page(unique_name)
