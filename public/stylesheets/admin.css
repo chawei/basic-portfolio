@@ -393,6 +393,16 @@ table.index {
       width: 80px;
       font-weight: bold;
     }
+    
+  .edit_container #upload_field div {
+    margin: 0 0 5px 0;
+  }
+  
+  .select_files_block span {
+    float: left;
+    margin-right: 8px;
+    line-height: 30px;
+  }
 
 /* Colors */
 .field #colors {

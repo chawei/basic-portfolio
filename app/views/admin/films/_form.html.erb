@@ -28,6 +28,8 @@
     });
   });
 </script>
+
+<%= javascript_include_tag 'swfobject' %>
 <% end %>
 
 <%= form_for([:admin, @film], :html => { :multipart => true }) do |f| %>
@@ -99,8 +101,15 @@
     <% if @film.film_video.nil? -%>
       <%= f.file_field :video, :id => "film_video" %>
     <% else -%>
+      <div>
+        <%= player({:file => @film.film_video.url, :image => @film.film_thumb.url(:preview) }, 
+                   {:width => 370, :height => 239, :player_id => "jw_player-#{@film.id}", :id => "flash_player-#{@film.id}", :wmode => "transparent"}) %>
+      </div>
       <div><%= link_to "Download video", @film.film_video.url %></div>
-      <div>replace with <%= f.file_field :video, :id => "film_video" %></div>
+      <div class="select_files_block clear_fix">
+        <span>replace with</span> 
+        <span><%= f.file_field :video, :id => "film_video" %></span>
+      </div>
     <% end -%>
     </div>
   </div>
