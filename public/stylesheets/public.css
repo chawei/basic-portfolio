@@ -252,7 +252,12 @@ a img {
 .pagination {
   
 }
-  .pagination .prev_page {
+  .pagination em {
+    color: #000;
+    font-style: normal;
+    text-decoration: underline;
+  }
+  .pagination .previous_page {
     margin: 0 8px 0 0;
   }
   .pagination .next_page {
