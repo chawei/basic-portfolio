@@ -14,7 +14,10 @@ $(document).ready(function() {
     //.bind("ajax:complete", toggleLoading)
     .bind("ajax:success", function(event, data, status, xhr) {
       // why not data?!?
-      //$(this).fadeOut();
+      var that = $(this);
+      that.fadeOut(function(){
+        that.remove();
+      });
     });
   
   $(".ajax_toggle_published")
