@@ -328,6 +328,10 @@ a.film {
   text-decoration: none;
   color: #666;
 }
+a.film:hover img {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
 a.last_film {
   margin: 0;
 }
@@ -351,10 +355,6 @@ a.last_film {
    height: 300px;
    overflow: hidden;
  }
-  .film .section:hover img {
-    opacity: 0.8;
-    filter: alpha(opacity=80);
-  }
  .film .meta_section {
    padding: 10px;
    border: none;
