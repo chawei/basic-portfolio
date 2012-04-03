@@ -9,12 +9,12 @@ function remove_field(element, item) {
 }
 
 $(document).ready(function() {
-  $(".ajax_photo_item")
+  $(".ajax_delete_photo_btn")
     //.bind("ajax:loading",  toggleLoading)
     //.bind("ajax:complete", toggleLoading)
     .bind("ajax:success", function(event, data, status, xhr) {
       // why not data?!?
-      var that = $(this);
+      var that = $(this).parents('.ajax_photo_item');
       that.fadeOut(function(){
         that.remove();
       });

@@ -27,7 +27,8 @@
       <% else -%>
       <%= link_to "Delete this photo", admin_photo_path(photo), :method => :delete, 
                                                                 :confirm => "Are you sure?", 
-                                                                :remote => true %>
+                                                                :remote => true,
+                                                                :class  => 'ajax_delete_photo_btn' %>
       <% end -%>
       </div>
     <% end %>

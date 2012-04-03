@@ -15,7 +15,7 @@
   <% for album in @albums %>
   <% @albums.index(album) % 4 == 3 ? css_class = "last_album" : css_class = "" %>
   <div class="album <%= css_class %>">
-    <% link_to album_path(album) do %>
+    <%= link_to album_path(album) do %>
       <%= image_tag(album.album_cover.url(:small)) %>
       <div class="title"><%= album.title %></div>
     <% end %>
