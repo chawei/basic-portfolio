@@ -1,29 +1,22 @@
-require 'bundler/capistrano'
-
 #############################################################
 # Servers
 #############################################################
-
 set :user,   "weihsing"
 set :domain, "weihsingyang.com"
-server domain, :app, :web
-role :db, domain, :primary => true
+
+role :web, domain
+role :app, domain 
+role :db,  domain, :primary => true
 
 #############################################################
 # Application
 #############################################################
 
 set :application, "portfolio"
-set :deploy_to, "/home/#{user}/apps/#{application}"
 
 #############################################################
 # Settings
 #############################################################
-
-default_run_options[:pty] = true
-ssh_options[:forward_agent] = true
-set :use_sudo, false
-set :scm_verbose, true
 set :rails_env, "production"
 
 # Less releases, less space wasted
@@ -32,58 +25,37 @@ set :keep_releases, 5
 #############################################################
 # Git
 #############################################################
-
-set :scm, :git
-set :branch, "master"
-set :repository, "git@github.com:chawei/basic-portfolio.git"
-set :deploy_via, :remote_cache
+set :repository,  "git@github.com:chawei/basic-portfolio.git"
+set :scm,         :git
+set :branch,      "master"
+set :scm_verbose, true
+set :deploy_via,  :remote_cache
+set :deploy_to,   "/home/#{user}/apps/#{application}"
 # If you have public like github.com then use :remote_cache
 # set :deploy_via, :copy  # if you server does NOT have direct access to the repository (default)  
+
+default_run_options[:pty]   = true
+ssh_options[:forward_agent] = true
+set :use_sudo, false
 
 #############################################################
 # Passenger
 #############################################################
 
+# Passenger mod_rails:
 namespace :deploy do
-  desc "Deploy with Migrations"
-  task :default do
-    set :migrate_target, :latest
-    update_code
-    migrate
-    symlink
-    restart
-  end
-  
-  desc "Symlink db"
-  task :before_migrate do
-    run "ln -s #{shared_path}/db/production.sqlite3 #{release_path}/db/production.sqlite3"
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   
   desc "Symlink config files and db"
-  task :before_symlink do
-    #run "rm #{release_path}/public/.htaccess" #not compatible with Passenger
-    #run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    #run "ln -s #{shared_path}/config/environment.rb #{release_path}/config/environment.rb"
-  end
-
-  # Restart passenger on deploy
-  desc "Restarting mod_rails with restart.txt"
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "touch #{current_path}/tmp/restart.txt"
-  end
-  
-  desc "Create SQLite db in shared folder"
-  task :create_db do
-    run "mkdir -p #{shared_path}/db; touch #{shared_path}/db/production.sqlite3"
-  end
-
-  [:start, :stop].each do |t|
-    desc "#{t} task is a no-op with mod_rails"
-    task t, :roles => :app do ; end
+  task :config_symlink do
+    run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -s #{shared_path}/config/oauth.yml #{release_path}/config/oauth.yml"
   end
 end
-
-before "deploy:cold", "deploy:create_db"
 
 namespace :db do
   desc "Dumps the #{rails_env} database to db/#{rails_env}_data.sql on the remote server"
