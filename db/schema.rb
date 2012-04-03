@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 20110129235851) do
     t.string   "album_cover_content_type"
     t.integer  "album_cover_file_size"
     t.datetime "album_cover_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.string   "state",                    :default => "hidden"
   end
 
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20110129235851) do
     t.string   "title"
     t.text     "content"
     t.date     "date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.string   "state",      :default => "hidden"
   end
 
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20110129235851) do
     t.string   "film_thumb_file_name"
     t.string   "film_thumb_content_type"
     t.string   "film_thumb_file_size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.boolean  "draft",                   :default => false
     t.string   "film_video_file_name"
     t.string   "film_video_content_type"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20110129235851) do
     t.string   "unique_name"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "photos", :force => true do |t|
@@ -77,8 +77,8 @@ ActiveRecord::Schema.define(:version => 20110129235851) do
     t.string   "data_content_type"
     t.string   "data_file_size"
     t.integer  "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "photos", ["imageable_id", "imageable_type"], :name => "index_photos_on_imageable_id_and_imageable_type"
@@ -110,8 +110,8 @@ ActiveRecord::Schema.define(:version => 20110129235851) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
@@ -122,8 +122,8 @@ ActiveRecord::Schema.define(:version => 20110129235851) do
     t.string   "video_data_file_name"
     t.string   "video_data_content_type"
     t.string   "video_data_file_size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
 end

@@ -98,18 +98,18 @@
       <div class="warning">please upload .mov format</div>
     </div>
     <div id="upload_field" class="left">
-    <% if @film.film_video.nil? -%>
-      <%= f.file_field :video, :id => "film_video" %>
-    <% else -%>
+    <% if @film.video && @film.video.video_data.exists? -%>
       <div>
-        <%= player({:file => @film.film_video.url, :image => @film.film_thumb.url(:preview) }, 
+        <%= player({:file => @film.video.video_data.url, :image => @film.film_thumb.url(:preview) }, 
                    {:width => 370, :height => 239, :player_id => "jw_player-#{@film.id}", :id => "flash_player-#{@film.id}", :wmode => "transparent"}) %>
       </div>
-      <div><%= link_to "Download video", @film.film_video.url %></div>
+      <div><%= link_to "Download video", @film.video.video_data.url %></div>
       <div class="select_files_block clear_fix">
         <span>replace with</span> 
         <span><%= f.file_field :video, :id => "film_video" %></span>
       </div>
+    <% else -%>
+      <%= f.file_field :video, :id => "film_video" %>
     <% end -%>
     </div>
   </div>

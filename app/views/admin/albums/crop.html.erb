@@ -43,9 +43,9 @@
   </div>
   <div class="clear_fix"></div>
 
-  <% form_for [:admin, @album] do |f| -%>
+  <%= form_for [:admin, @album] do |f| %>
     <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
-        <%= f.hidden_field attribute, :id => attribute %>
+      <%= f.hidden_field attribute, :id => attribute %>
     <% end %>
   
     <div style="margin: 0 0 10px 0">
@@ -56,5 +56,5 @@
     <div class="actions">
       <%= f.submit "Crop", :class => "submit_btn" %>
     </div>
-  <% end -%>
+  <% end %>
 </div>

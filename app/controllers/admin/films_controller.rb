@@ -60,8 +60,9 @@ class Admin::FilmsController < AdminController
   # PUT /films/1.xml
   def update
     @film = Film.find(params[:id])
-    @film.video = Video.find_by_associate_id(params[:associate_id])
-
+    if video = Video.find_by_associate_id(params[:associate_id])
+      @film.video = video
+    end
     respond_to do |format|
       if @film.update_attributes(params[:film])
         format.html { redirect_to([:admin, @film], :notice => 'Film was successfully updated.') }
