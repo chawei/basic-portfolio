@@ -53,9 +53,10 @@ namespace :deploy do
   desc "Symlink config files and db"
   task :config_symlink do
     run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    run "ln -s #{shared_path}/config/oauth.yml #{release_path}/config/oauth.yml"
   end
 end
+
+after "deploy:update_code", "deploy:config_symlink"
 
 namespace :db do
   desc "Dumps the #{rails_env} database to db/#{rails_env}_data.sql on the remote server"
