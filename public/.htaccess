@@ -1,7 +1,10 @@
 # Phusion Passenger Start
 PassengerEnabled on
 # Phusion Passenger End
-PassengerAppRoot /home/rails3-deployer/apps/yang-dev/current
+# Linode Setting
+# PassengerAppRoot /home/rails3-deployer/apps/yang-dev/current
+PassengerAppRoot /home/weihsing/apps/portfolio/current
+
 
 AddType font/opentype .otf
 AddType font/truetype .ttf

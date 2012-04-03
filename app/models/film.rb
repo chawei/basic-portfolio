@@ -17,7 +17,7 @@ class Film < ActiveRecord::Base
   has_one :video
   has_attached_file :film_video
 
-  named_scope :public, :conditions => { :draft => false }
+  scope :public, :conditions => { :draft => false }
   
   after_create :remove_redundant_videos
   

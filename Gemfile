@@ -1,11 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3-ruby', '1.3.1', :require => 'sqlite3'
+gem 'rails', '3.2.3'
+gem 'sqlite3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -21,7 +17,7 @@ gem 'capistrano'
 
 gem 'simple-navigation'
 gem 'friendly_id', '~> 3.1'
-gem 'authlogic', '2.1.6'
+gem 'authlogic'
 gem 'will_paginate', '~> 3.0.pre4'
 gem 'paperclip'
 gem 'acts_as_list'
