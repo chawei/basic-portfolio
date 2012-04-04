@@ -235,7 +235,11 @@ table.index {
     table.index td.actions a {
       margin-right: 15px;
     }
-    
+
+.film_item {
+  height: 95px;
+}
+
 .thumb_item {
   width: 380px;
   margin: 10px;

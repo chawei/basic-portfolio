@@ -15,7 +15,7 @@
   Please add a new film
   <% else %>
   <% @films.each do |film| %>
-  <div class="thumb_item left">
+  <div class="thumb_item film_item left">
     <div class="image left">
       <%= link_to image_tag(film.film_thumb.url(:medium)), [:admin, film] %>
     </div>

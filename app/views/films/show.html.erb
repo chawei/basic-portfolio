@@ -18,8 +18,10 @@
 
 <div id="film">
   <div class="movie_player">
-    <%= player({:file => @film.film_video.url, :image => @film.film_thumb.url(:preview) }, 
+    <% if @film.video && @film.video.video_data %>
+    <%= player({:file => @film.video.video_data.url, :image => @film.film_thumb.url(:preview) }, 
                {:width => 700, :height => 450, :player_id => "jw_player-#{@film.id}", :id => "flash_player-#{@film.id}", :wmode => "transparent"}) %>
+    <% end %>
   </div>
 
   <h2><%= @film.title %></h2>
