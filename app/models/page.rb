@@ -2,6 +2,7 @@ class Page < ActiveRecord::Base
   has_friendly_id :unique_name
   
   validates_presence_of :unique_name
+  before_update :sanitize_html
   
   def self.all_custom_pages
     return [self.page('bio'), self.page('cv'), self.page('contact')]
@@ -15,5 +16,13 @@ class Page < ActiveRecord::Base
                          :content => 'Please edit me')
     end
     return page
+  end
+  
+  def sanitize_html
+    doc = Hpricot self.content
+    doc.search("[@style]").each do |e|
+      e.remove_attribute("style")
+    end
+    self.content = doc.html
   end
 end

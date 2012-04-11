@@ -3,9 +3,6 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.3'
 gem 'mysql2'
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
 # Deploy with Capistrano
 gem 'capistrano'
 
@@ -22,6 +19,7 @@ gem 'will_paginate', '~> 3.0.pre4'
 gem 'paperclip'
 gem 'acts_as_list'
 gem 'state_machine'
+gem 'hpricot'
 
 group :development, :test, :cucumber do
   gem 'ruby-debug'

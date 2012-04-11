@@ -19,9 +19,18 @@ class Film < ActiveRecord::Base
 
   scope :public, :conditions => { :draft => false }
   
-  after_create :remove_redundant_videos
+  after_create  :remove_redundant_videos
+  before_update :sanitize_html
   
   def remove_redundant_videos
     Video.cleanup
+  end
+  
+  def sanitize_html
+    doc = Hpricot self.description
+    doc.search("[@style]").each do |e|
+      e.remove_attribute("style")
+    end
+    self.description = doc.html
   end
 end
