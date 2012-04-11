@@ -530,7 +530,7 @@ table.index {
 .inline_edit_textfield input:hover {
   border: 1px solid #ccc;
 }
-.inline_edit_textfield input:focus, input:active {
+.inline_edit_textfield input:focus, .inline_edit_textfield input:active {
   border: 1px solid #29ABE2;
 }
 

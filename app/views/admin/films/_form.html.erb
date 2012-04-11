@@ -95,7 +95,7 @@
     <%= hidden_field_tag 'associate_id', "#{params[:associate_id] || 'film_'+Time.now.to_i.to_s}", :id => 'associate_id' %>
     <div class="label left">
       <label for="film_thumb">Film Video</label>
-      <div class="warning">please upload .mov format</div>
+      <div class="warning">please upload .mov or .mp4 format</div>
     </div>
     <div id="upload_field" class="left">
     <% if @film.video && @film.video.video_data.exists? -%>
