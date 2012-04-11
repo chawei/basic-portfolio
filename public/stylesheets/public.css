@@ -253,9 +253,15 @@ a img {
   
 }
   .pagination em {
-    color: #000;
+    color: #29ABE2;
     font-style: normal;
-    text-decoration: underline;
+  }
+  .pagination a {
+    color: #333;
+    text-decoration: none;
+  }
+  .pagination a:hover {
+    color: #29ABE2;
   }
   .pagination .previous_page {
     margin: 0 8px 0 0;
@@ -323,7 +329,7 @@ a.film {
   width: 390px;
   float: left;
   display: block;
-  margin: 0 20px 0 0;
+  margin: 0 20px 20px 0;
   background-color: #f2f2f2;
   text-decoration: none;
   color: #666;
