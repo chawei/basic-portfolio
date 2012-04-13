@@ -295,7 +295,6 @@ a img {
   color: #666;
 }
   .article * {
-    font-family: Georgia, "Times New Roman", serif;
     font-size: 12px;
   }
   .article .date {
@@ -319,6 +318,10 @@ a img {
   .film_type_bar a {
     color: #333;
     text-decoration: none;
+  }
+  
+  .film_type_bar a:hover {
+    color: #29ABE2;
   }
 
   .directorial_selected .directorial, .editorial_selected .editorial, ._selected .all {
@@ -348,7 +351,6 @@ a.last_film {
    margin: 5px 0 10px 0;
  }
  .film .description, .film .description * {
-   font-family: "Georgia", "Times New Roman", serif;
    font-size: 12px;
  }
  .film .section {

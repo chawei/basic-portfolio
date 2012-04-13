@@ -11,7 +11,7 @@
     <div class="section">
       <%= image_tag film.film_thumb(:medium) %>
       <h2><%= film.title %></h2>
-      <div class="description rich_text"><%= film.description.html_safe.truncate(100) %></div>
+      <div class="description rich_text"><%= film.description.html_safe %></div>
     </div>
     <div class="meta_section clear_fix">
       <div class="left">
