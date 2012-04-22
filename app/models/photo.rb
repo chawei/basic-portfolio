@@ -6,8 +6,8 @@ class Photo < ActiveRecord::Base
   
   belongs_to :imageable, :polymorphic => true
   
-  has_attached_file :data, :styles => { :large => "730x438>",
-                                        :medium => "453x264>",
+  has_attached_file :data, :styles => { :large => "800x600>",
+                                        :medium => "400x300>",
                                         :small => "185x185>",
                                         :thumb => "84x54#" }
   
