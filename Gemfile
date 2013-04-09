@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.13'
 gem 'mysql2'
 
 # Deploy with Capistrano
@@ -15,12 +15,14 @@ gem 'capistrano'
 gem 'simple-navigation'
 gem 'friendly_id', '~> 3.1'
 gem 'authlogic'
-gem 'will_paginate', '~> 3.0.pre4'
-gem 'paperclip'
+gem 'will_paginate', '~> 3.0'
+gem 'paperclip', '~> 3.0'
 gem 'acts_as_list'
 gem 'state_machine'
 gem 'hpricot'
+gem 'jwplayer-rails'
+gem 'dynamic_form', '~> 1.1.4'
 
 group :development, :test, :cucumber do
-  gem 'ruby-debug'
+  gem 'debugger'
 end

@@ -55,8 +55,7 @@
       <div class="label">Video</div>
       <% if @film.video && @film.video.video_data.exists? %>
       <span>
-        <%= player({:file => @film.video.video_data.url, :image => @film.film_thumb.url(:preview) }, 
-                   {:width => 370, :height => 239, :player_id => "jw_player-#{@film.id}", :id => "flash_player-#{@film.id}", :wmode => "transparent"}) %>
+        <%= jwplayer({:file => @film.video.video_data.url, :image => @film.film_thumb.url(:preview), :width => 370, :height => 239, :player_id => "jw_player-#{@film.id}", :id => "flash_player-#{@film.id}", :wmode => "transparent"}) %>
       </span>
       <% else %>
       None

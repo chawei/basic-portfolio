@@ -4,6 +4,7 @@
   <div class="edit_container">
     <%= form_for([:admin, @user_session], :url => admin_user_session_path) do |f| %>
       <%= f.error_messages %>
+      
       <div class="field">
         <%= f.label :username, :class => 'label' %>
         <%= f.text_field :username %>
